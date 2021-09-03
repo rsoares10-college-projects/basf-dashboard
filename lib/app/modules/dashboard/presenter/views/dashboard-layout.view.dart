@@ -1,7 +1,8 @@
+import 'package:basf_dashboard/app/modules/dashboard/presenter/widgets/custom-app-bar/custom-app-bar.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../widgets/side-menu/side-menu.dart';
+import '../widgets/side-menu/side-menu.widget.dart';
 
 class DashboardLayout extends StatefulWidget {
   const DashboardLayout({Key? key}) : super(key: key);
@@ -14,11 +15,7 @@ class _DashboardLayoutState extends State<DashboardLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.purple,
-        automaticallyImplyLeading: false,
-      ),
+      appBar: customAppBar,
       body: Row(
         children: [
           Expanded(
