@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'side-menu-button.widget.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({Key? key}) : super(key: key);
@@ -7,22 +10,43 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.purple,
-      child: Column(
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: () => Modular.to.navigate('/dashboard/home'),
-            child: Text('Home'),
-          ),
-          ElevatedButton(
-            onPressed: () => Modular.to.navigate('/dashboard/simulator'),
-            child: Text('Simulator'),
-          ),
-          ElevatedButton(
-            onPressed: () => Modular.to.navigate('/dashboard/about'),
-            child: Text('about'),
-          ),
-        ],
+      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 3.0),
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SideMenuButton(
+              icon: FontAwesomeIcons.home,
+              label: 'Home',
+              routeTag: '/dashboard/home',
+              onPressed: () => Modular.to.navigate('/dashboard/home'),
+            ),
+            SideMenuButton(
+              icon: FontAwesomeIcons.chartLine,
+              label: 'Simulator',
+              routeTag: '/dashboard/simulator',
+              onPressed: () => Modular.to.navigate('/dashboard/simulator'),
+            ),
+            SideMenuButton(
+              icon: FontAwesomeIcons.chartBar,
+              label: 'Analytics',
+              routeTag: '/dashboard/analytics',
+              onPressed: () => Modular.to.navigate('/dashboard/analytics'),
+            ),
+            Spacer(),
+            SideMenuButton(
+              icon: FontAwesomeIcons.solidQuestionCircle,
+              label: 'About',
+              routeTag: '/dashboard/about',
+              onPressed: () => Modular.to.navigate('/dashboard/about'),
+            ),
+          ],
+        ),
       ),
     );
   }
