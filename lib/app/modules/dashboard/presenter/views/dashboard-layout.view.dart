@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import '../widgets/side-menu/side-menu.dart';
 
 class DashboardLayout extends StatefulWidget {
   const DashboardLayout({Key? key}) : super(key: key);
@@ -13,20 +16,20 @@ class _DashboardLayoutState extends State<DashboardLayout> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.purple,
+        automaticallyImplyLeading: false,
       ),
       body: Row(
         children: [
           Expanded(
             flex: 2,
-            child: Container(
-              color: Colors.red,
-            ),
+            child: SideMenu(),
           ),
           Expanded(
             flex: 30,
-            child: Container(
-              color: Colors.green,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
+              child: RouterOutlet(),
             ),
           ),
         ],
