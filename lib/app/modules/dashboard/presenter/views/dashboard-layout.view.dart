@@ -20,7 +20,10 @@ class _DashboardLayoutState extends State<DashboardLayout> {
         children: [
           Expanded(
             flex: 2,
-            child: SideMenu(),
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 15.0),
+              child: SideMenu(),
+            ),
           ),
           Expanded(
             flex: 30,

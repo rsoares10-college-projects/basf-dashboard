@@ -11,8 +11,15 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Text('[Home]'),
+      body: SizedBox.expand(
+        child: Card(
+          elevation: 2.0,
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          child: Center(child: Text('[Home]')),
+        ),
       ),
     );
   }

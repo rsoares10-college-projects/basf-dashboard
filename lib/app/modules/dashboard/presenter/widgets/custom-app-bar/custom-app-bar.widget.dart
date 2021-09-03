@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 final customAppBar = AppBar(
   elevation: 2,
@@ -56,9 +57,9 @@ final customAppBar = AppBar(
         width: 15.0,
       ),
       Icon(
-        Icons.person,
+        FontAwesomeIcons.userAlt,
         color: Colors.purple,
-        size: 20.0,
+        size: 15.0,
       ),
       SizedBox(
         width: 10.0,

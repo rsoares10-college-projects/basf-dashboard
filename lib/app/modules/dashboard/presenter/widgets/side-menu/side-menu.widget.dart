@@ -10,7 +10,7 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 3.0),
+      padding: EdgeInsets.only(left: 5.0),
       child: Card(
         elevation: 2,
         shape: RoundedRectangleBorder(
@@ -20,6 +20,9 @@ class SideMenu extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            SizedBox(
+              height: 10.0,
+            ),
             SideMenuButton(
               icon: FontAwesomeIcons.home,
               label: 'Home',

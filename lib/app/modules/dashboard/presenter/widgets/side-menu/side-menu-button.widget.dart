@@ -32,7 +32,7 @@ class SideMenuButton extends StatelessWidget {
           children: <Widget>[
             Icon(
               icon,
-              size: 18.0,
+              size: 15.0,
               color: Colors.purple,
             ),
             SizedBox(
