@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/feature-box/feature-box-list.widget.dart';
+
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -18,7 +20,21 @@ class _HomeViewState extends State<HomeView> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0),
           ),
-          child: Center(child: Text('[Home]')),
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 3,
+                  child: FeatureBoxList(),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Container(),
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );

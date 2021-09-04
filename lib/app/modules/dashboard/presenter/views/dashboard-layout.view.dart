@@ -1,7 +1,7 @@
-import 'package:basf_dashboard/app/modules/dashboard/presenter/widgets/custom-app-bar/custom-app-bar.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../widgets/custom-app-bar/custom-app-bar.widget.dart';
 import '../widgets/side-menu/side-menu.widget.dart';
 
 class DashboardLayout extends StatefulWidget {
