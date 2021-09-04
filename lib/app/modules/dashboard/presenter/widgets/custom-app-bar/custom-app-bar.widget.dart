@@ -62,7 +62,7 @@ final customAppBar = AppBar(
         size: 15.0,
       ),
       SizedBox(
-        width: 10.0,
+        width: 25.0,
       ),
     ],
   ),
