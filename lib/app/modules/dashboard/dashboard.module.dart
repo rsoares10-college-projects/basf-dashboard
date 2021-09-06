@@ -1,3 +1,4 @@
+import 'package:basf_dashboard/app/modules/dashboard/presenter/stores/dashboard.store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../core/views/splash.view.dart';
@@ -9,6 +10,11 @@ import 'presenter/views/dashboard-layout.view.dart';
 import 'presenter/views/social.view.dart';
 
 class DashboardModule extends Module {
+  @override
+  List<Bind<Object>> get binds => [
+        Bind((i) => DashboardStore()),
+      ];
+
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (__, _) => SplashView(), transition: TransitionType.fadeIn),
     ChildRoute(

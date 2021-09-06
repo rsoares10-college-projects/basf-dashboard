@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../stores/dashboard.store.dart';
 import 'side-menu-button.widget.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu({Key? key}) : super(key: key);
+  SideMenu({Key? key}) : super(key: key);
+
+  final dashboardStore = Modular.get<DashboardStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,32 +32,47 @@ class SideMenu extends StatelessWidget {
                 icon: FontAwesomeIcons.home,
                 label: 'Home',
                 routeTag: '/dashboard/home',
-                onPressed: () => Modular.to.navigate('/dashboard/home'),
+                onPressed: () {
+                  dashboardStore.setRoute('/dashboard/home');
+                  Modular.to.navigate('/dashboard/home');
+                },
               ),
               SideMenuButton(
                 icon: FontAwesomeIcons.coins,
                 label: 'Moeda',
                 routeTag: '/dashboard/currency',
-                onPressed: () => Modular.to.navigate('/dashboard/currency'),
+                onPressed: () {
+                  dashboardStore.setRoute('/dashboard/currency');
+                  Modular.to.navigate('/dashboard/currency');
+                },
               ),
               SideMenuButton(
                 icon: Icons.chat_bubble,
                 label: 'Social',
                 routeTag: '/dashboard/soial',
-                onPressed: () => Modular.to.navigate('/dashboard/social'),
+                onPressed: () {
+                  dashboardStore.setRoute('/dashboard/soial');
+                  Modular.to.navigate('/dashboard/social');
+                },
               ),
               SideMenuButton(
                 icon: FontAwesomeIcons.chartLine,
                 label: 'Analytics',
                 routeTag: '/dashboard/analytics',
-                onPressed: () => Modular.to.navigate('/dashboard/analytics'),
+                onPressed: () {
+                  dashboardStore.setRoute('/dashboard/analytics');
+                  Modular.to.navigate('/dashboard/analytics');
+                },
               ),
               Spacer(),
               SideMenuButton(
                 icon: FontAwesomeIcons.solidQuestionCircle,
                 label: 'About',
                 routeTag: '/dashboard/about',
-                onPressed: () => Modular.to.navigate('/dashboard/about'),
+                onPressed: () {
+                  dashboardStore.setRoute('/dashboard/about');
+                  Modular.to.navigate('/dashboard/about');
+                },
               ),
             ],
           ),

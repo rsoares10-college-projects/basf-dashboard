@@ -5,3 +5,4 @@ linter:
     public_member_api_docs: false
     lines_longer_than_80_chars: false
     file_names: false
+    use_setters_to_change_properties: false
