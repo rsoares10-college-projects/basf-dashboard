@@ -56,6 +56,15 @@ class SideMenu extends StatelessWidget {
                 },
               ),
               SideMenuButton(
+                icon: FontAwesomeIcons.gasPump,
+                label: 'Diesel',
+                routeTag: '/dashboard/diesel',
+                onPressed: () {
+                  dashboardStore.setRoute('/dashboard/diesel');
+                  Modular.to.navigate('/dashboard/diesel');
+                },
+              ),
+              SideMenuButton(
                 icon: FontAwesomeIcons.chartLine,
                 label: 'Analytics',
                 routeTag: '/dashboard/analytics',

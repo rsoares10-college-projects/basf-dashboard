@@ -1,12 +1,13 @@
-import 'package:basf_dashboard/app/modules/dashboard/presenter/stores/dashboard.store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../core/views/splash.view.dart';
 import '../home/home.module.dart';
+import 'presenter/stores/dashboard.store.dart';
 import 'presenter/views/about.view.dart';
 import 'presenter/views/analytics.view.dart';
 import 'presenter/views/currency.view.dart';
 import 'presenter/views/dashboard-layout.view.dart';
+import 'presenter/views/diesel.view.dart';
 import 'presenter/views/social.view.dart';
 
 class DashboardModule extends Module {
@@ -24,6 +25,7 @@ class DashboardModule extends Module {
         ModuleRoute('/home', module: HomeModule(), transition: TransitionType.fadeIn),
         ChildRoute('/currency', child: (__, _) => Currencyview(), transition: TransitionType.fadeIn),
         ChildRoute('/social', child: (__, _) => SocialView(), transition: TransitionType.fadeIn),
+        ChildRoute('/diesel', child: (__, _) => DieselView(), transition: TransitionType.fadeIn),
         ChildRoute('/analytics', child: (__, _) => AnalyticsView(), transition: TransitionType.fadeIn),
         ChildRoute('/about', child: (__, _) => AboutView(), transition: TransitionType.fadeIn),
       ],
