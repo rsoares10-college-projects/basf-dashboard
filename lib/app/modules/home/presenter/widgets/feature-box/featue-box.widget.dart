@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FeatureBox extends StatelessWidget {
   final Color backgroundColor;
@@ -27,7 +28,6 @@ class FeatureBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 100.0, maxWidth: 200.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(3.0),
         border: Border.all(width: 0.5, color: borderColor),
@@ -36,7 +36,7 @@ class FeatureBox extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 20.0, right: 10.0),
               decoration: BoxDecoration(
                 color: backgroundColor,
               ),
@@ -47,17 +47,17 @@ class FeatureBox extends StatelessWidget {
                   Icon(
                     icon,
                     color: Colors.white,
-                    size: 40.0,
+                    size: 35.0,
                   ),
                   Column(
                     children: <Widget>[
                       Text(
                         value,
-                        style: labelStyle,
+                        style: valueStyle,
                       ),
                       Text(
                         label,
-                        style: valueStyle,
+                        style: labelStyle,
                       ),
                     ],
                   )
@@ -67,7 +67,7 @@ class FeatureBox extends StatelessWidget {
           ),
           Container(
             constraints: BoxConstraints(maxHeight: 30.0),
-            padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+            padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 20.0, right: 10.0),
             height: double.infinity,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +78,7 @@ class FeatureBox extends StatelessWidget {
                   style: detailStyle,
                 ),
                 Icon(
-                  Icons.add,
+                  Icons.info_outline_rounded,
                   color: detailIconColor,
                   size: 15.0,
                 ),

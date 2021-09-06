@@ -25,11 +25,11 @@ class _HomeViewState extends State<HomeView> {
             child: Column(
               children: <Widget>[
                 Expanded(
-                  flex: 3,
+                  flex: 5,
                   child: FeatureBoxList(),
                 ),
                 Expanded(
-                  flex: 10,
+                  flex: 20,
                   child: Container(),
                 )
               ],
