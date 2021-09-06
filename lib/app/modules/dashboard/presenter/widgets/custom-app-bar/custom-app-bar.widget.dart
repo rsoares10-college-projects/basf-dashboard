@@ -15,8 +15,9 @@ final customAppBar = AppBar(
             'BASF\nDashboard',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.purple,
+              color: Colors.deepPurple,
               fontSize: 16.0,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
@@ -24,9 +25,12 @@ final customAppBar = AppBar(
       SizedBox(
         width: 30.0,
       ),
-      Icon(
-        Icons.menu,
-        color: Colors.purple,
+      IconButton(
+        onPressed: () {},
+        icon: Icon(
+          Icons.menu,
+          color: Colors.deepPurple,
+        ),
       ),
       SizedBox(
         width: 20.0,
@@ -36,30 +40,26 @@ final customAppBar = AppBar(
         padding: EdgeInsets.only(left: 10.0),
         height: double.infinity,
         decoration: BoxDecoration(
-          border: Border.all(width: 0.5, color: Colors.purple),
-          borderRadius: BorderRadius.circular(3.0),
+          border: Border.all(width: 0.5, color: Colors.deepPurple),
+          borderRadius: BorderRadius.circular(5.0),
         ),
         child: TextField(
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: 'Seach',
+            hintStyle: TextStyle(color: Colors.deepPurple.shade200, fontWeight: FontWeight.bold),
+            hintText: 'Buscar...',
           ),
         ),
       ),
       Spacer(),
-      Icon(
-        Icons.notifications_none,
-        color: Colors.purple,
-        size: 20.0,
-      ),
-      SizedBox(
-        width: 15.0,
-      ),
-      Icon(
-        FontAwesomeIcons.userAlt,
-        color: Colors.purple,
-        size: 15.0,
+      IconButton(
+        onPressed: () {},
+        icon: Icon(
+          Icons.settings,
+          color: Colors.deepPurple,
+          size: 20.0,
+        ),
       ),
       SizedBox(
         width: 25.0,
