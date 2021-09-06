@@ -24,12 +24,33 @@ class _HomeViewState extends State<HomeView> {
             padding: EdgeInsets.all(10.0),
             child: Column(
               children: <Widget>[
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Dashboard',
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                Divider(
+                  color: Colors.deepPurple.shade300,
+                  height: 1.0,
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
                 Expanded(
-                  flex: 5,
+                  flex: 7,
                   child: FeatureBoxList(),
                 ),
                 Expanded(
-                  flex: 20,
+                  flex: 25,
                   child: Container(),
                 )
               ],
