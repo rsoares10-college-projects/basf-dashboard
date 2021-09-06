@@ -10,7 +10,7 @@ class AnalyticsView extends StatefulWidget {
 class _AnalyticsViewState extends State<AnalyticsView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Center(
       child: Text('[Analytics]'),
     );
   }

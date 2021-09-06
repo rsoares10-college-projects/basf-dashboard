@@ -11,7 +11,7 @@ class AboutViewState extends State<AboutView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: Center(
         child: Text('[About]'),
       ),
     );

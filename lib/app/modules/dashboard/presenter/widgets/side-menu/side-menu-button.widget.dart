@@ -21,15 +21,15 @@ class SideMenuButton extends StatelessWidget {
       // padding: EdgeInsets.all(3.0),
       margin: EdgeInsets.only(bottom: 5.0),
       decoration: BoxDecoration(
-        border: Border.all(width: 0.2, color: Colors.purple),
-        borderRadius: BorderRadius.circular(3.0),
+        border: Border.all(width: 0.5, color: Colors.deepPurple),
+        borderRadius: BorderRadius.circular(4.0),
       ),
       alignment: Alignment.center,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           elevation: 2,
-          onPrimary: Colors.purple,
+          onPrimary: Colors.deepPurple,
           primary: Colors.transparent,
           shadowColor: Colors.transparent,
           enabledMouseCursor: SystemMouseCursors.click,
@@ -40,7 +40,7 @@ class SideMenuButton extends StatelessWidget {
             Icon(
               icon,
               size: 14.0,
-              color: Colors.purple,
+              color: Colors.deepPurple,
             ),
             SizedBox(
               height: 5.0,
@@ -53,7 +53,7 @@ class SideMenuButton extends StatelessWidget {
                 fit: BoxFit.fitHeight,
                 child: Text(
                   label,
-                  style: TextStyle(color: Colors.purple),
+                  style: TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
