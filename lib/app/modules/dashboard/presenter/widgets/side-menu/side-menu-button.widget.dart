@@ -1,7 +1,8 @@
-import 'package:basf_dashboard/app/modules/dashboard/presenter/stores/dashboard.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../stores/dashboard.store.dart';
 
 class SideMenuButton extends StatelessWidget {
   final IconData icon;
