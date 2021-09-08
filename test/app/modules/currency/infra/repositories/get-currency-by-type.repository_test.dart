@@ -1,6 +1,6 @@
 import 'package:basf_dashboard/app/modules/currency/domain/entitties/currency.entity.dart';
 import 'package:basf_dashboard/app/modules/currency/domain/enums/currency-type.enum.dart';
-import 'package:basf_dashboard/app/modules/currency/infra/data/get-currency-by-type.datasource.dart';
+import 'package:basf_dashboard/app/modules/currency/infra/data/datasouce/get-currency-by-type.datasource.dart';
 import 'package:basf_dashboard/app/modules/currency/infra/errors/currency-datasouce.error.dart';
 import 'package:basf_dashboard/app/modules/currency/infra/models/currency.model.dart';
 import 'package:basf_dashboard/app/modules/currency/infra/repositories/get-currency-by-type.repository.dart';

@@ -6,7 +6,7 @@ import 'dart:async' as _i4;
 
 import 'package:basf_dashboard/app/modules/currency/domain/enums/currency-type.enum.dart'
     as _i5;
-import 'package:basf_dashboard/app/modules/currency/infra/data/get-currency-by-type.datasource.dart'
+import 'package:basf_dashboard/app/modules/currency/infra/data/datasouce/get-currency-by-type.datasource.dart'
     as _i3;
 import 'package:basf_dashboard/app/modules/currency/infra/models/currency.model.dart'
     as _i2;

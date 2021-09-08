@@ -4,7 +4,7 @@ import '../../domain/entitties/currency.entity.dart';
 import '../../domain/enums/currency-type.enum.dart';
 import '../../domain/errors/currency.erros.dart';
 import '../../domain/repositories/get-currency-by-type.repository.dart';
-import '../data/get-currency-by-type.datasource.dart';
+import '../data/datasouce/get-currency-by-type.datasource.dart';
 import '../errors/currency-datasouce.error.dart';
 
 class GetCurrencyByTypeRepositoryImpl implements GetCurrencyByTypeRepository {

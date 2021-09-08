@@ -10,7 +10,7 @@ class AppModule extends Module {
   final List<Bind> binds = [];
 
   @override
-  final List<ModularRoute> routes = <ModularRoute<dynamic>>[
+  final List<ModularRoute> routes = [
     ModuleRoute('/', module: DashboardModule(), transition: TransitionType.fadeIn),
   ];
 }
