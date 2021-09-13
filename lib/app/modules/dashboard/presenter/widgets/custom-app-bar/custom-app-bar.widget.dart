@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../stores/dashboard.store.dart';
+
+final dashboardStore = Modular.get<DashboardStore>();
 
 final customAppBar = AppBar(
   elevation: 2,
@@ -53,15 +58,20 @@ final customAppBar = AppBar(
       ),
       Spacer(),
       IconButton(
+        onPressed: () async => await dashboardStore.refreshDashboard(),
+        icon: Icon(
+          Icons.refresh_rounded,
+          color: Colors.deepPurple,
+          size: 20.0,
+        ),
+      ),
+      IconButton(
         onPressed: () {},
         icon: Icon(
           Icons.settings,
           color: Colors.deepPurple,
           size: 20.0,
         ),
-      ),
-      SizedBox(
-        width: 25.0,
       ),
     ],
   ),

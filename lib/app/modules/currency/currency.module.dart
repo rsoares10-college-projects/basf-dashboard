@@ -12,7 +12,7 @@ class CurrencyModule extends Module {
         Bind((i) => CurrencyStore(), export: true),
         Bind((i) => AwesomeAPIsGetCurrencyByTypeDatasouce(i()), export: true),
         Bind((i) => GetCurrencyByTypeRepositoryImpl(i()), export: true),
-        Bind((i) => GetCurrencyByTypeImpl(i()), export: true),
+        Bind.singleton((i) => GetCurrencyByTypeImpl(i()), export: true),
       ];
 
   @override

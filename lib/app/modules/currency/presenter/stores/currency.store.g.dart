@@ -48,6 +48,13 @@ mixin _$CurrencyStore on _CurrencyStore, Store {
         .run(() => super.getCurrencyByType(type));
   }
 
+  final _$refreshAsyncAction = AsyncAction('_CurrencyStore.refresh');
+
+  @override
+  Future<void> refresh() {
+    return _$refreshAsyncAction.run(() => super.refresh());
+  }
+
   final _$_CurrencyStoreActionController =
       ActionController(name: '_CurrencyStore');
 

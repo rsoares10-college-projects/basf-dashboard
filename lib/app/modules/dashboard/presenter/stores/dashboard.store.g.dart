@@ -24,6 +24,14 @@ mixin _$DashboardStore on _DashboardStore, Store {
     });
   }
 
+  final _$refreshDashboardAsyncAction =
+      AsyncAction('_DashboardStore.refreshDashboard');
+
+  @override
+  Future<void> refreshDashboard() {
+    return _$refreshDashboardAsyncAction.run(() => super.refreshDashboard());
+  }
+
   final _$_DashboardStoreActionController =
       ActionController(name: '_DashboardStore');
 

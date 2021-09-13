@@ -36,4 +36,9 @@ abstract class _CurrencyStore with Store {
   void changeCurrency(CurrencyType type) {
     getCurrencyByType(type);
   }
+
+  @action
+  Future<void> refresh() async {
+    await getCurrencyByType(currentType);
+  }
 }
