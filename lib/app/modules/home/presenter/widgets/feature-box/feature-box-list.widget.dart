@@ -51,7 +51,7 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
                 detailIconColor: Colors.deepPurple,
                 icon: FontAwesomeIcons.connectdevelop,
                 value: '435',
-                label: 'IA Score',
+                label: 'AI Score',
                 detailStyle: TextStyle(
                   color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
@@ -65,15 +65,15 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
             ),
             Expanded(
               child: FeatureBox(
-                backgroundColor: Color(0xFF02abef),
-                borderColor: Color(0xFF02abef),
+                backgroundColor: Colors.deepPurple,
+                borderColor: Colors.deepPurple,
                 labelStyle: TextStyle(color: Colors.white, fontSize: 13.0),
-                detailIconColor: Color(0xFF02abef),
+                detailIconColor: Colors.deepPurple,
                 icon: Icons.chat_bubble_rounded,
                 value: '320',
                 label: 'Social Score',
                 detailStyle: TextStyle(
-                  color: Color(0xFF02abef),
+                  color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
                   fontSize: 12.0,
                 ),
@@ -85,15 +85,15 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
             ),
             Expanded(
               child: FeatureBox(
-                borderColor: Colors.green,
-                backgroundColor: Colors.green,
+                borderColor: Colors.deepPurple,
+                backgroundColor: Colors.deepPurple,
                 labelStyle: TextStyle(color: Colors.white, fontSize: 13.0),
                 detailStyle: TextStyle(
-                  color: Colors.green,
+                  color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
                   fontSize: 12.0,
                 ),
-                detailIconColor: Colors.green,
+                detailIconColor: Colors.deepPurple,
                 valueStyle: TextStyle(
                   color: Colors.white,
                   fontSize: 25.0,
@@ -109,23 +109,23 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
             ),
             Expanded(
               child: FeatureBox(
-                borderColor: Colors.deepOrange,
+                borderColor: Colors.deepPurple,
                 detailStyle: TextStyle(
-                  color: Colors.deepOrange,
+                  color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
                   fontSize: 12.0,
                 ),
-                backgroundColor: Colors.deepOrange,
-                detailIconColor: Colors.deepOrange,
+                backgroundColor: Colors.deepPurple,
+                detailIconColor: Colors.deepPurple,
                 labelStyle: TextStyle(color: Colors.white, fontSize: 13.0),
                 valueStyle: TextStyle(
                   color: Colors.white,
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold,
                 ),
-                icon: Icons.local_shipping,
+                icon: FontAwesomeIcons.gasPump,
                 value: 'R\$ 10,0',
-                label: 'Frete Estimado',
+                label: 'Preço Diesel',
               ),
             ),
           ],
