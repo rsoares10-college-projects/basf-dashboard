@@ -11,6 +11,73 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final buttonStyle = ElevatedButton.styleFrom(
+    primary: Colors.deepPurple.shade400,
+    elevation: 1.0,
+    shadowColor: Colors.transparent,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
+    enabledMouseCursor: SystemMouseCursors.click,
+    textStyle: TextStyle(
+      color: Colors.white,
+      fontSize: 12.0,
+      fontWeight: FontWeight.bold,
+    ),
+  );
+
+  _showDatePicker() async {
+    await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2018),
+      lastDate: DateTime(2022),
+      locale: Locale('pt', 'BR'),
+    );
+  }
+
+  final materials = <String>[
+    'EUPERLAN BRIGHT 200KG 1H2',
+    'CETIOL ULTIMATE 155KG 1A1',
+    'ORKESTRA® SC,GU4X5 L,BR',
+    'PLUG 1/4" BSP-M',
+  ];
+
+  final odList = <String>['EM', 'AP', 'EN', 'EB', 'CM', 'CP', 'XB', 'ED', 'PM'];
+
+  final buList = <String>['EMY', 'APY', 'ENY', 'EBS', 'CMS', 'CPE', 'XBZ'];
+
+  final sbuList = <String>['EMB', 'APF', 'APH', 'API', 'APG', 'EMU', 'ENL'];
+
+  final specialProcessingIndicatorList = <int>[1200, 1017, 1201, 1204, 1015, 1016];
+
+  final carrierList = <String>['TRANSPORTES ESTRADEIRO LTDA', 'TRANSPORTES CAVALINHO LTDA'];
+
+  final plantList = <String>['BASF S.A - Jacareí', 'BASF S. A. Posse BASF S/A', 'BASF S.A - Guaratinguetá'];
+
+  final depshippingPointName = <String>['P - Jacarei', 'SP - Sto Ant Posse', 'SP - Guaratinguetá', 'SP - CD Vinhedo', 'SP - Vila Prudente', 'SP - CD Cumbica'];
+
+  final cities = <String>['GUARULHOS', 'GUARATINGUETA', 'SAO PAULO', 'JUNIDIAI', 'MOMBUCA', 'ITAGUAI'];
+
+  DropdownButton _buildDropdown(List itemList) {
+    return DropdownButton<dynamic>(
+      iconEnabledColor: Colors.deepPurple.shade400,
+      isDense: true,
+      value: itemList.first,
+      underline: SizedBox(),
+      style: TextStyle(
+        color: Colors.deepPurple.shade400,
+        fontSize: 14.0,
+        fontWeight: FontWeight.bold,
+      ),
+      items: itemList.map((value) {
+        return DropdownMenuItem<dynamic>(
+          value: value,
+          child: Text('$value'),
+        );
+      }).toList(),
+      onChanged: (_) {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,41 +137,262 @@ class _HomeViewState extends State<HomeView> {
                             width: 20.0,
                           ),
                           Expanded(
-                            child: Container(
-                              child: Column(
-                                children: <Widget>[
-                                  FeatureCheckbox(
-                                    isChecked: true,
-                                    title: 'Calendar Year/Month',
-                                    child: Container(),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 8,
+                                  child: LayoutBuilder(
+                                    builder: (context, constraints) => Container(
+                                      child: ListView(
+                                        children: <Widget>[
+                                          FeatureCheckbox(
+                                            isChecked: true,
+                                            title: 'Data',
+                                            child: ConstrainedBox(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 101,
+                                              ),
+                                              child: Row(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.end,
+                                                children: <Widget>[
+                                                  ElevatedButton.icon(
+                                                    icon: Icon(
+                                                      Icons.date_range,
+                                                      size: 20.0,
+                                                    ),
+                                                    style: buttonStyle,
+                                                    onPressed: _showDatePicker,
+                                                    label: Text('Data Inicial'),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 15.0,
+                                                  ),
+                                                  ElevatedButton.icon(
+                                                    icon: Icon(
+                                                      Icons.date_range,
+                                                      size: 20.0,
+                                                    ),
+                                                    style: buttonStyle,
+                                                    onPressed: _showDatePicker,
+                                                    label: Text('Data Final'),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Delivery Item',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: true,
+                                            title: 'Material',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 108,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(materials),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: true,
+                                            title: 'OD',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 76,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(odList),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'BU',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 75,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(buList),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'SBU',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 84,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(sbuList),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Special Processing Indicator',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 234,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(specialProcessingIndicatorList),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: true,
+                                            title: 'Carrier',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 99,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(carrierList),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: true,
+                                            title: 'Plant Name',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 130,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(plantList),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: true,
+                                            title: 'Depshipping point name',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 208,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(depshippingPointName),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: true,
+                                            title: 'City',
+                                            child: Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: constraints.maxWidth - 81,
+                                              ),
+                                              alignment: Alignment.centerRight,
+                                              child: _buildDropdown(depshippingPointName),
+                                            ),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'SH - Ship-To Party',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'SH - Ship-To Party name',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Postal Code',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Region',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Transportation zone',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Pack Materials Tr',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Inco 1 (shipment)',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Country TO',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Gosss Delivery Wt-KG',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'OD Special',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Cidade Origem',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'CPRE',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Estado',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Transfer/EndCustomer',
+                                            child: Container(),
+                                          ),
+                                          FeatureCheckbox(
+                                            isChecked: false,
+                                            title: 'Cidade/Estado',
+                                            child: Container(),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                  FeatureCheckbox(
-                                    isChecked: false,
-                                    title: 'Net Delivery value LOC',
-                                    child: Container(),
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Divider(
+                                  height: 0.5,
+                                  color: Colors.deepPurple.shade200,
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    alignment: Alignment.bottomRight,
+                                    constraints: BoxConstraints(maxHeight: 15.0),
+                                    child: SizedBox(
+                                      width: 80.0,
+                                      child: ElevatedButton(
+                                        onPressed: () {},
+                                        style: buttonStyle,
+                                        child: Text(
+                                          'Estimar',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                  FeatureCheckbox(
-                                    isChecked: true,
-                                    title: 'Gosss Delivery Wt-KG	',
-                                    child: Container(),
-                                  ),
-                                  FeatureCheckbox(
-                                    isChecked: false,
-                                    title: 'PrioR',
-                                    child: Container(),
-                                  ),
-                                  FeatureCheckbox(
-                                    isChecked: false,
-                                    title: 'GDW (Kg)	',
-                                    child: Container(),
-                                  ),
-                                  FeatureCheckbox(
-                                    isChecked: false,
-                                    title: 'Material',
-                                    child: Container(),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -141,30 +429,40 @@ class FeatureCheckboxState extends State<FeatureCheckbox> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: BoxConstraints(maxHeight: 25.0),
+      margin: EdgeInsets.only(bottom: 5.0),
       alignment: Alignment.centerLeft,
-      constraints: BoxConstraints(maxHeight: 50.0),
       height: double.infinity,
       width: double.infinity,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Checkbox(
               value: widget.isChecked ?? false,
+              activeColor: Colors.deepPurple.shade400,
               onChanged: (value) {
                 setState(() {
                   widget.isChecked = !widget.isChecked!;
                 });
               }),
           SizedBox(
-            width: 20.0,
+            width: 5.0,
           ),
           Text(
             widget.title ?? '',
             style: TextStyle(
+              fontSize: 14.0,
               color: Colors.deepPurple,
               fontWeight: FontWeight.bold,
             ),
           ),
-          widget.child ?? Container(),
+          SizedBox(
+            width: 20.0,
+          ),
+          Visibility(
+            visible: widget.isChecked ?? false,
+            child: widget.child ?? Container(),
+          ),
         ],
       ),
     );
