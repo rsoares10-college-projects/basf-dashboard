@@ -50,7 +50,7 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
                 ),
                 detailIconColor: Colors.deepPurple,
                 icon: FontAwesomeIcons.connectdevelop,
-                value: '435',
+                value: '94%',
                 label: 'AI Score',
                 detailStyle: TextStyle(
                   color: Colors.deepPurple,

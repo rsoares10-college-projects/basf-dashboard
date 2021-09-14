@@ -1,6 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../dashboard/presenter/stores/dashboard.store.dart';
 import '../widgets/feature-box/feature-box-list.widget.dart';
 
 class HomeView extends StatefulWidget {
@@ -10,7 +12,7 @@ class HomeView extends StatefulWidget {
   _HomeViewState createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends ModularState<HomeView, DashboardStore> {
   final buttonStyle = ElevatedButton.styleFrom(
     primary: Colors.deepPurple.shade400,
     elevation: 1.0,
@@ -379,7 +381,41 @@ class _HomeViewState extends State<HomeView> {
                                     child: SizedBox(
                                       width: 80.0,
                                       child: ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () async {
+                                          await store.getFreightcost();
+                                          await showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                title: Text(
+                                                  'Frete Estimado',
+                                                  style: TextStyle(
+                                                    color: Colors.deepPurple,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                actions: [
+                                                  ElevatedButton(
+                                                    onPressed: () => Navigator.pop(context),
+                                                    child: Text(
+                                                      'Ok',
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                                content: Container(
+                                                  child: Text(
+                                                    'R\$ ${store.freightCost.toStringAsFixed(2)}',
+                                                    style: TextStyle(color: Colors.deepPurple),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
                                         style: buttonStyle,
                                         child: Text(
                                           'Estimar',

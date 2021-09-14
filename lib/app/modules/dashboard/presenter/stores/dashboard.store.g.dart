@@ -24,12 +24,35 @@ mixin _$DashboardStore on _DashboardStore, Store {
     });
   }
 
+  final _$freightCostAtom = Atom(name: '_DashboardStore.freightCost');
+
+  @override
+  double get freightCost {
+    _$freightCostAtom.reportRead();
+    return super.freightCost;
+  }
+
+  @override
+  set freightCost(double value) {
+    _$freightCostAtom.reportWrite(value, super.freightCost, () {
+      super.freightCost = value;
+    });
+  }
+
   final _$refreshDashboardAsyncAction =
       AsyncAction('_DashboardStore.refreshDashboard');
 
   @override
   Future<void> refreshDashboard() {
     return _$refreshDashboardAsyncAction.run(() => super.refreshDashboard());
+  }
+
+  final _$getFreightcostAsyncAction =
+      AsyncAction('_DashboardStore.getFreightcost');
+
+  @override
+  Future<void> getFreightcost() {
+    return _$getFreightcostAsyncAction.run(() => super.getFreightcost());
   }
 
   final _$_DashboardStoreActionController =
@@ -49,7 +72,8 @@ mixin _$DashboardStore on _DashboardStore, Store {
   @override
   String toString() {
     return '''
-currentRoute: ${currentRoute}
+currentRoute: ${currentRoute},
+freightCost: ${freightCost}
     ''';
   }
 }
