@@ -70,7 +70,42 @@ class _HomeViewState extends State<HomeView> {
                             width: 20.0,
                           ),
                           Expanded(
-                            child: Container(),
+                            child: Container(
+                              child: Column(
+                                children: <Widget>[
+                                  FeatureCheckbox(
+                                    isChecked: true,
+                                    title: 'Calendar Year/Month',
+                                    child: Container(),
+                                  ),
+                                  FeatureCheckbox(
+                                    isChecked: false,
+                                    title: 'Net Delivery value LOC',
+                                    child: Container(),
+                                  ),
+                                  FeatureCheckbox(
+                                    isChecked: true,
+                                    title: 'Gosss Delivery Wt-KG	',
+                                    child: Container(),
+                                  ),
+                                  FeatureCheckbox(
+                                    isChecked: false,
+                                    title: 'PrioR',
+                                    child: Container(),
+                                  ),
+                                  FeatureCheckbox(
+                                    isChecked: false,
+                                    title: 'GDW (Kg)	',
+                                    child: Container(),
+                                  ),
+                                  FeatureCheckbox(
+                                    isChecked: false,
+                                    title: 'Material',
+                                    child: Container(),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -81,6 +116,56 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class FeatureCheckbox extends StatefulWidget {
+  String? title;
+  bool? isChecked;
+  Widget? child;
+
+  FeatureCheckbox({
+    required this.title,
+    required this.isChecked,
+    required this.child,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  FeatureCheckboxState createState() => FeatureCheckboxState();
+}
+
+class FeatureCheckboxState extends State<FeatureCheckbox> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      constraints: BoxConstraints(maxHeight: 50.0),
+      height: double.infinity,
+      width: double.infinity,
+      child: Row(
+        children: <Widget>[
+          Checkbox(
+              value: widget.isChecked ?? false,
+              onChanged: (value) {
+                setState(() {
+                  widget.isChecked = !widget.isChecked!;
+                });
+              }),
+          SizedBox(
+            width: 20.0,
+          ),
+          Text(
+            widget.title ?? '',
+            style: TextStyle(
+              color: Colors.deepPurple,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          widget.child ?? Container(),
+        ],
       ),
     );
   }
