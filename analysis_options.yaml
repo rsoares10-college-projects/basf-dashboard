@@ -8,3 +8,7 @@ linter:
     use_setters_to_change_properties: false
     one_member_abstracts: false
     camel_case_types: false
+
+analyzer:
+  errors:
+    undefined_prefixed_name: ignore
