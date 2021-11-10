@@ -55,9 +55,9 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
                 detailStyle: TextStyle(
                   color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12.0,
+                  fontSize: 11.0,
                 ),
-                valueStyle: TextStyle(color: Colors.white, fontSize: 25.0, fontWeight: FontWeight.bold),
+                valueStyle: TextStyle(color: Colors.white, fontSize: 23.0, fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(

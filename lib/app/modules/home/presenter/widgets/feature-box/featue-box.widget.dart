@@ -35,7 +35,7 @@ class FeatureBox extends StatelessWidget {
           ? Container(
               alignment: Alignment.center,
               child: Container(
-                constraints: BoxConstraints(maxHeight: 50.0, maxWidth: 50.0),
+                constraints: BoxConstraints(maxHeight: 45.0, maxWidth: 45.0),
                 child: CircularProgressIndicator(
                   color: Colors.deepPurple.shade200,
                 ),

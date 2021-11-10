@@ -38,6 +38,15 @@ class SideMenu extends StatelessWidget {
                 },
               ),
               SideMenuButton(
+                icon: FontAwesomeIcons.chartLine,
+                label: 'Analytics',
+                routeTag: '/dashboard/analytics',
+                onPressed: () {
+                  dashboardStore.setRoute('/dashboard/analytics');
+                  Modular.to.navigate('/dashboard/analytics');
+                },
+              ),
+              SideMenuButton(
                 icon: FontAwesomeIcons.coins,
                 label: 'Moeda',
                 routeTag: '/dashboard/currency',
@@ -62,15 +71,6 @@ class SideMenu extends StatelessWidget {
                 onPressed: () {
                   dashboardStore.setRoute('/dashboard/diesel');
                   Modular.to.navigate('/dashboard/diesel');
-                },
-              ),
-              SideMenuButton(
-                icon: FontAwesomeIcons.chartLine,
-                label: 'Analytics',
-                routeTag: '/dashboard/analytics',
-                onPressed: () {
-                  dashboardStore.setRoute('/dashboard/analytics');
-                  Modular.to.navigate('/dashboard/analytics');
                 },
               ),
               Spacer(),
