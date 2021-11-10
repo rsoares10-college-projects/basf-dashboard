@@ -46,26 +46,32 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
             borderRadius: BorderRadius.circular(5.0),
           ),
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.symmetric(vertical: 10.0),
             child: Column(
               children: <Widget>[
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Dashboard',
-                    style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
+                Padding(
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Dashboard',
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(
                   height: 5.0,
                 ),
-                Divider(
-                  color: Colors.deepPurple.shade300,
-                  height: 1.0,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Divider(
+                    color: Colors.deepPurple.shade300,
+                    height: 1.0,
+                  ),
                 ),
                 SizedBox(
                   height: 10.0,
@@ -76,32 +82,30 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                 ),
                 Expanded(
                   flex: 25,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 15.0),
-                    child: Container(
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Placeholder(
-                              color: Colors.deepPurple.shade100,
-                            ),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 0),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Placeholder(
+                            color: Colors.deepPurple.shade100,
                           ),
-                          SizedBox(
-                            width: 20.0,
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Expanded(
+                                child: Placeholder(
+                                  color: Colors.deepPurple.shade100,
+                                ),
+                              )
+                            ],
                           ),
-                          Expanded(
-                            child: Column(
-                              children: <Widget>[
-                                Expanded(
-                                  child: Placeholder(
-                                    color: Colors.deepPurple.shade100,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 )

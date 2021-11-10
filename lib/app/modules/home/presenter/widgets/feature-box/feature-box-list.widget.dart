@@ -36,9 +36,9 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
     return Observer(
       builder: (_) => Container(
         padding: const EdgeInsets.symmetric(vertical: 5.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
           children: <Widget>[
             Expanded(
               child: FeatureBox(
@@ -99,9 +99,33 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold,
                 ),
-                icon: FontAwesomeIcons.coins,
+                icon: FontAwesomeIcons.dollarSign,
                 value: store.currentPrice == null ? null : '${brlFormat.format(store.currentPrice)}',
                 label: 'Preço Dólar',
+              ),
+            ),
+            SizedBox(
+              width: 20.0,
+            ),
+            Expanded(
+              child: FeatureBox(
+                borderColor: Colors.deepPurple,
+                backgroundColor: Colors.deepPurple,
+                labelStyle: TextStyle(color: Colors.white, fontSize: 13.0),
+                detailStyle: TextStyle(
+                  color: Colors.deepPurple,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12.0,
+                ),
+                detailIconColor: Colors.deepPurple,
+                valueStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                icon: FontAwesomeIcons.euroSign,
+                value: store.currentPrice == null ? null : '${brlFormat.format(store.currentPrice)}',
+                label: 'Preço Euro',
               ),
             ),
             SizedBox(
