@@ -25,10 +25,13 @@ class HomeViewHeader extends StatelessWidget {
                 'Dashboard',
                 style: TextStyle(
                   color: Colors.deepPurple,
-                  fontSize: 25.0,
+                  fontSize: 23.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+            ),
+            SizedBox(
+              height: 5.0,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.0),
