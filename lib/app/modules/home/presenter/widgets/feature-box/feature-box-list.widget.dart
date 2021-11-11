@@ -21,11 +21,6 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
   final brlFormat = NumberFormat('R\$ #.##', 'pt_BR');
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void didChangeDependencies() {
     store.getCurrencyByType(CurrencyType.usd);
     super.didChangeDependencies();
@@ -42,22 +37,9 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
           children: <Widget>[
             Expanded(
               child: FeatureBox(
-                backgroundColor: Colors.deepPurple,
-                borderColor: Colors.deepPurple,
-                labelStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 13.0,
-                ),
-                detailIconColor: Colors.deepPurple,
                 icon: FontAwesomeIcons.connectdevelop,
                 value: '94%',
                 label: 'AI Score',
-                detailStyle: TextStyle(
-                  color: Colors.deepPurple,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 11.0,
-                ),
-                valueStyle: TextStyle(color: Colors.white, fontSize: 23.0, fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(
@@ -65,19 +47,9 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
             ),
             Expanded(
               child: FeatureBox(
-                backgroundColor: Colors.deepPurple,
-                borderColor: Colors.deepPurple,
-                labelStyle: TextStyle(color: Colors.white, fontSize: 13.0),
-                detailIconColor: Colors.deepPurple,
-                icon: Icons.chat_bubble_rounded,
+                icon: FontAwesomeIcons.twitter,
                 value: '320',
                 label: 'Social Score',
-                detailStyle: TextStyle(
-                  color: Colors.deepPurple,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12.0,
-                ),
-                valueStyle: TextStyle(color: Colors.white, fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(
@@ -85,20 +57,6 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
             ),
             Expanded(
               child: FeatureBox(
-                borderColor: Colors.deepPurple,
-                backgroundColor: Colors.deepPurple,
-                labelStyle: TextStyle(color: Colors.white, fontSize: 13.0),
-                detailStyle: TextStyle(
-                  color: Colors.deepPurple,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12.0,
-                ),
-                detailIconColor: Colors.deepPurple,
-                valueStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
                 icon: FontAwesomeIcons.dollarSign,
                 value: store.currentPrice == null ? null : '${brlFormat.format(store.currentPrice)}',
                 label: 'Preço Dólar',
@@ -109,23 +67,9 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
             ),
             Expanded(
               child: FeatureBox(
-                borderColor: Colors.deepPurple,
-                backgroundColor: Colors.deepPurple,
-                labelStyle: TextStyle(color: Colors.white, fontSize: 13.0),
-                detailStyle: TextStyle(
-                  color: Colors.deepPurple,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12.0,
-                ),
-                detailIconColor: Colors.deepPurple,
-                valueStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
-                icon: FontAwesomeIcons.euroSign,
-                value: store.currentPrice == null ? null : '${brlFormat.format(store.currentPrice)}',
-                label: 'Preço Euro',
+                icon: FontAwesomeIcons.gasPump,
+                value: 'R\$ 10,0',
+                label: 'Preço Diesel',
               ),
             ),
             SizedBox(
@@ -133,23 +77,9 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
             ),
             Expanded(
               child: FeatureBox(
-                borderColor: Colors.deepPurple,
-                detailStyle: TextStyle(
-                  color: Colors.deepPurple,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12.0,
-                ),
-                backgroundColor: Colors.deepPurple,
-                detailIconColor: Colors.deepPurple,
-                labelStyle: TextStyle(color: Colors.white, fontSize: 13.0),
-                valueStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
-                icon: FontAwesomeIcons.gasPump,
-                value: 'R\$ 10,0',
-                label: 'Preço Diesel',
+                icon: FontAwesomeIcons.euroSign,
+                value: store.currentPrice == null ? null : '${brlFormat.format(store.currentPrice)}',
+                label: 'Preço Euro',
               ),
             ),
           ],

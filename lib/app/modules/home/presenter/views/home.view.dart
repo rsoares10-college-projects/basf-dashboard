@@ -77,11 +77,11 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                   height: 10.0,
                 ),
                 Expanded(
-                  flex: 7,
+                  flex: 6,
                   child: FeatureBoxList(),
                 ),
                 Expanded(
-                  flex: 25,
+                  flex: 26,
                   child: Container(
                     padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 0),
                     child: Row(

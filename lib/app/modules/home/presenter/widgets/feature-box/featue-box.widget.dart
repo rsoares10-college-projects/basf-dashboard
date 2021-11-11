@@ -1,35 +1,30 @@
 import 'package:flutter/material.dart';
 
 class FeatureBox extends StatelessWidget {
-  final Color backgroundColor;
-  final Color borderColor;
-  final TextStyle labelStyle;
-  final TextStyle valueStyle;
-  final TextStyle detailStyle;
-  final Color detailIconColor;
   final String? value;
   final String label;
   final IconData icon;
 
-  const FeatureBox({
-    required this.backgroundColor,
-    required this.borderColor,
-    required this.labelStyle,
-    required this.valueStyle,
-    required this.detailStyle,
-    required this.detailIconColor,
+  FeatureBox({
     required this.value,
     required this.label,
     required this.icon,
     Key? key,
   }) : super(key: key);
 
+  final valueStyle = TextStyle(color: Colors.white, fontSize: 19.0, fontWeight: FontWeight.bold);
+
+  final detailStyle = TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.bold, fontSize: 11.0);
+
+  final labelStyle = TextStyle(color: Colors.white, fontSize: 12.0);
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: BoxConstraints(maxWidth: 183.5),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(3.0),
-        border: Border.all(width: 0.5, color: borderColor),
+        borderRadius: BorderRadius.circular(3.5),
+        border: Border.all(width: 1.0, color: Colors.deepPurple.shade200),
       ),
       child: value == null
           ? Container(
@@ -44,10 +39,11 @@ class FeatureBox extends StatelessWidget {
           : Column(
               children: <Widget>[
                 Expanded(
+                  flex: 2,
                   child: Container(
                     padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 20.0, right: 10.0),
                     decoration: BoxDecoration(
-                      color: backgroundColor,
+                      color: Colors.deepPurple.shade500,
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,17 +52,24 @@ class FeatureBox extends StatelessWidget {
                         Icon(
                           icon,
                           color: Colors.white,
-                          size: 35.0,
+                          size: 25.0,
                         ),
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(
-                              value ?? '',
-                              style: valueStyle,
+                            Expanded(
+                              flex: 3,
+                              child: Text(
+                                value ?? '',
+                                style: valueStyle,
+                              ),
                             ),
-                            Text(
-                              label,
-                              style: labelStyle,
+                            Expanded(
+                              flex: 2,
+                              child: Text(
+                                label,
+                                style: labelStyle,
+                              ),
                             ),
                           ],
                         )
@@ -74,24 +77,31 @@ class FeatureBox extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  constraints: BoxConstraints(maxHeight: 30.0),
-                  padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 20.0, right: 10.0),
-                  height: double.infinity,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'View Details',
-                        style: detailStyle,
-                      ),
-                      Icon(
-                        Icons.info_outline_rounded,
-                        color: detailIconColor,
-                        size: 15.0,
-                      ),
-                    ],
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 20.0, right: 10.0),
+                    height: double.infinity,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        FittedBox(
+                          fit: BoxFit.fitHeight,
+                          child: Text(
+                            'View Details',
+                            style: detailStyle,
+                          ),
+                        ),
+                        FittedBox(
+                          fit: BoxFit.fitHeight,
+                          child: Icon(
+                            Icons.info_outline_rounded,
+                            color: Colors.deepPurple,
+                            size: 14.0,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
