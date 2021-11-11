@@ -56,23 +56,72 @@ final customAppBar = AppBar(
           ),
         ),
       ),
-      Spacer(),
-      IconButton(
-        onPressed: () async => await dashboardStore.refreshDashboard(),
-        icon: Icon(
-          Icons.refresh_rounded,
-          color: Colors.deepPurple,
-          size: 20.0,
+      SizedBox(
+        width: 15.0,
+      ),
+      Expanded(
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Flexible(
+                child: Container(
+                  constraints: BoxConstraints(maxWidth: 30.0, maxHeight: 30.0),
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: FittedBox(
+                    fit: BoxFit.fitHeight,
+                    child: ElevatedButton(
+                      onPressed: () async => await dashboardStore.refreshDashboard(),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        primary: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        onPrimary: Colors.deepPurpleAccent,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      child: Icon(
+                        Icons.refresh_rounded,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 15.0,
+              ),
+              Flexible(
+                child: Container(
+                  constraints: BoxConstraints(maxWidth: 30.0, maxHeight: 30.0),
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        primary: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        onPrimary: Colors.deepPurpleAccent,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      child: Icon(
+                        Icons.settings,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.settings,
-          color: Colors.deepPurple,
-          size: 20.0,
-        ),
-      ),
+      SizedBox(
+        width: 14.0,
+      )
     ],
   ),
 );
