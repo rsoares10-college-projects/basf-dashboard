@@ -15,7 +15,7 @@ class SideMenu extends StatelessWidget {
     return Container(
       alignment: Alignment.centerRight,
       child: Card(
-        elevation: 2,
+        elevation: 1.0,
         color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),

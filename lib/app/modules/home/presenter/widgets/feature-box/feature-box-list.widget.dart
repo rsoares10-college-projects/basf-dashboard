@@ -30,6 +30,7 @@ class _FeatureBoxListState extends ModularState<FeatureBoxList, CurrencyStore> {
   Widget build(BuildContext context) {
     return Observer(
       builder: (_) => Container(
+        constraints: BoxConstraints(maxHeight: 100.0),
         padding: const EdgeInsets.symmetric(vertical: 5.0),
         child: ListView(
           scrollDirection: Axis.horizontal,
