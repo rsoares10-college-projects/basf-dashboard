@@ -119,9 +119,6 @@ final customAppBar = AppBar(
           ),
         ),
       ),
-      SizedBox(
-        width: 14.0,
-      )
     ],
   ),
 );

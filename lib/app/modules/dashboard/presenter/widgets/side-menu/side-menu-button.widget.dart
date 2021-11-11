@@ -25,11 +25,13 @@ class SideMenuButton extends StatelessWidget {
     return Observer(
       builder: (_) => Container(
         constraints: BoxConstraints(maxHeight: 50.0, maxWidth: 65.0),
+        height: double.infinity,
+        width: double.infinity,
         margin: const EdgeInsets.only(bottom: 5.0),
         decoration: BoxDecoration(
           border: Border.all(
-            width: 0.5,
-            color: dashboardStore.currentRoute == routeTag ? Colors.deepPurple : Colors.deepPurple.shade300,
+            width: 1.0,
+            color: dashboardStore.currentRoute == routeTag ? Colors.deepPurpleAccent : Colors.deepPurple.shade100,
           ),
           borderRadius: BorderRadius.circular(4.0),
         ),
@@ -46,10 +48,13 @@ class SideMenuButton extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(
-                icon,
-                size: 14.0,
-                color: dashboardStore.currentRoute == routeTag ? Colors.deepPurple : Colors.deepPurple.shade300,
+              FittedBox(
+                fit: BoxFit.contain,
+                child: Icon(
+                  icon,
+                  size: 14.0,
+                  color: dashboardStore.currentRoute == routeTag ? Colors.deepPurpleAccent : Colors.deepPurple.shade300,
+                ),
               ),
               SizedBox(
                 height: 5.0,
@@ -63,7 +68,7 @@ class SideMenuButton extends StatelessWidget {
                   child: Text(
                     label,
                     style: TextStyle(
-                      color: dashboardStore.currentRoute == routeTag ? Colors.deepPurple : Colors.deepPurple.shade300,
+                      color: dashboardStore.currentRoute == routeTag ? Colors.deepPurpleAccent : Colors.deepPurple.shade300,
                       fontWeight: dashboardStore.currentRoute == routeTag ? FontWeight.w800 : FontWeight.w300,
                     ),
                   ),

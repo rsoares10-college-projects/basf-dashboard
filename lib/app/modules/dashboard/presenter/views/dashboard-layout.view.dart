@@ -16,6 +16,7 @@ class _DashboardLayoutState extends State<DashboardLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar,
+      backgroundColor: Color(0xFFefefef),
       body: Row(
         children: [
           Expanded(
@@ -28,7 +29,7 @@ class _DashboardLayoutState extends State<DashboardLayout> {
           Expanded(
             flex: 30,
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
+              padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
               child: RouterOutlet(),
             ),
           ),

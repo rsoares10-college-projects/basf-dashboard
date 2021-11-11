@@ -38,10 +38,10 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: SizedBox.expand(
         child: Card(
-          elevation: 2.0,
-          color: Colors.white,
+          elevation: 1.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0),
           ),

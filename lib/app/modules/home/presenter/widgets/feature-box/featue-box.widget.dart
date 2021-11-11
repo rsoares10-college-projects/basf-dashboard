@@ -21,7 +21,7 @@ class FeatureBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 183.5),
+      constraints: BoxConstraints(maxWidth: 188.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(3.5),
         border: Border.all(width: 1.0, color: Colors.deepPurple.shade200),
