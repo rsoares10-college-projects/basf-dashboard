@@ -5,16 +5,16 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../dashboard/presenter/stores/dashboard.store.dart';
 
-class MaterialNameList extends StatefulWidget {
-  const MaterialNameList({
+class SBUNameList extends StatefulWidget {
+  const SBUNameList({
     Key? key,
   }) : super(key: key);
 
   @override
-  _MaterialNameListState createState() => _MaterialNameListState();
+  _SBUNameListState createState() => _SBUNameListState();
 }
 
-class _MaterialNameListState extends ModularState<MaterialNameList, DashboardStore> with SingleTickerProviderStateMixin {
+class _SBUNameListState extends ModularState<SBUNameList, DashboardStore> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Color?> _animationOne;
   late Animation<Color?> _animationTwo;
@@ -45,7 +45,7 @@ class _MaterialNameListState extends ModularState<MaterialNameList, DashboardSto
   @override
   Widget build(BuildContext context) {
     return Observer(
-      builder: (context) => store.materialNameList == null
+      builder: (context) => store.sbuList == null
           ? ShaderMask(
               shaderCallback: (bounds) {
                 return LinearGradient(
@@ -68,25 +68,21 @@ class _MaterialNameListState extends ModularState<MaterialNameList, DashboardSto
           : Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: Colors.deepPurple.shade50,
-                    blurRadius: 0.5,
-                    spreadRadius: 0.5,
-                    offset: Offset(0.5, 0.5),
-                  ),
-                ],
               ),
               child: DropdownSearch<String>(
+                dialogMaxWidth: 200.0,
                 mode: Mode.DIALOG,
-                items: store.materialNameList,
+                items: store.sbuList,
                 dropdownSearchDecoration: InputDecoration(
-                  labelText: "Material",
-                  contentPadding: EdgeInsets.all(5.0),
-                  border: OutlineInputBorder(),
+                  labelText: "SBU",
+                  contentPadding: EdgeInsets.only(left: 5.0, top: 5.0),
+                  border: OutlineInputBorder(
+                    gapPadding: 5.0,
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
                 ),
                 onChanged: print,
-                selectedItem: store.materialNameList?.first,
+                selectedItem: store.sbuList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(
                   decoration: InputDecoration(
@@ -96,7 +92,7 @@ class _MaterialNameListState extends ModularState<MaterialNameList, DashboardSto
                   ),
                 ),
                 popupTitle: Container(
-                  height: 40.0,
+                  height: 35.0,
                   decoration: BoxDecoration(
                     color: Colors.deepPurple.shade500,
                     borderRadius: BorderRadius.only(
@@ -106,7 +102,7 @@ class _MaterialNameListState extends ModularState<MaterialNameList, DashboardSto
                   ),
                   child: Center(
                     child: Text(
-                      'Materiais',
+                      'SBU (${store.sbuList?.length})',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

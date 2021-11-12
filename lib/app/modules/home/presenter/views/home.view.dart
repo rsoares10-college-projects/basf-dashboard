@@ -1,10 +1,11 @@
+import 'package:basf_dashboard/app/modules/home/presenter/widgets/dropdown-menus/sbu-name-list.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../dashboard/presenter/stores/dashboard.store.dart';
+import '../widgets/dropdown-menus/material-name-list.widget.dart';
 import '../widgets/home-view-currency-box/home-view-currency-box.widget.dart';
 import '../widgets/home-view-header/home-view-header.widget.dart';
-import '../widgets/material-name-list/material-name-list.widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
 
   @override
   void didChangeDependencies() async {
-    await store.readJson();
+    await store.loadLocalBASFData();
     super.didChangeDependencies();
   }
 
@@ -87,11 +88,13 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Container(
-                            constraints: BoxConstraints(maxHeight: 35.0),
+                            constraints: BoxConstraints(maxHeight: 40.0),
                             child: Row(
                               children: <Widget>[
                                 Container(
+                                  constraints: BoxConstraints(maxWidth: 130.0),
                                   height: double.infinity,
+                                  width: double.infinity,
                                   child: ElevatedButton.icon(
                                     onPressed: _selectDate,
                                     style: ElevatedButton.styleFrom(
@@ -118,6 +121,20 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                 Expanded(
                                   child: MaterialNameList(),
                                 ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Container(
+                            constraints: BoxConstraints(maxHeight: 40.0),
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  constraints: BoxConstraints(maxWidth: 130.0),
+                                  child: SBUNameList(),
+                                )
                               ],
                             ),
                           ),

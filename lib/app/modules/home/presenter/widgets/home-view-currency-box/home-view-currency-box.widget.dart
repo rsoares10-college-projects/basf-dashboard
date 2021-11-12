@@ -23,64 +23,51 @@ class _HomeViewCurrencyBoxState extends State<HomeViewCurrencyBox> {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: 170.0),
-      child: Card(
-        elevation: 1.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(
-                height: 10.0,
-              ),
-              Text(
-                'Moedas',
-                style: TextStyle(
-                  color: Colors.deepPurple,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: 5.0,
-              ),
-              Divider(
-                color: Colors.deepPurple.shade300,
-                height: 1.0,
-              ),
-              Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Card(
+            elevation: 1.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Expanded(
-                    child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          widget.dollarBuyPriceTextField as Widget,
-                          widget.dollarSellPriceTextField as Widget,
-                        ],
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          child: Column(
+                            children: <Widget>[
+                              widget.dollarBuyPriceTextField as Widget,
+                              widget.dollarSellPriceTextField as Widget,
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 20.0,
-                  ),
-                  Expanded(
-                    child: Container(
-                      child: Column(
-                        children: <Widget>[
-                          widget.euroBuyPriceTextField as Widget,
-                          widget.euroSellPriceTextField as Widget,
-                        ],
+                      SizedBox(
+                        width: 20.0,
                       ),
-                    ),
+                      Expanded(
+                        child: Container(
+                          child: Column(
+                            children: <Widget>[
+                              widget.euroBuyPriceTextField as Widget,
+                              widget.euroSellPriceTextField as Widget,
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

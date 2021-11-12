@@ -54,6 +54,197 @@ mixin _$DashboardStore on _DashboardStore, Store {
     });
   }
 
+  final _$carrierNameListAtom = Atom(name: '_DashboardStore.carrierNameList');
+
+  @override
+  List<String>? get carrierNameList {
+    _$carrierNameListAtom.reportRead();
+    return super.carrierNameList;
+  }
+
+  @override
+  set carrierNameList(List<String>? value) {
+    _$carrierNameListAtom.reportWrite(value, super.carrierNameList, () {
+      super.carrierNameList = value;
+    });
+  }
+
+  final _$sbuListAtom = Atom(name: '_DashboardStore.sbuList');
+
+  @override
+  List<String>? get sbuList {
+    _$sbuListAtom.reportRead();
+    return super.sbuList;
+  }
+
+  @override
+  set sbuList(List<String>? value) {
+    _$sbuListAtom.reportWrite(value, super.sbuList, () {
+      super.sbuList = value;
+    });
+  }
+
+  final _$plantNameListAtom = Atom(name: '_DashboardStore.plantNameList');
+
+  @override
+  List<String>? get plantNameList {
+    _$plantNameListAtom.reportRead();
+    return super.plantNameList;
+  }
+
+  @override
+  set plantNameList(List<String>? value) {
+    _$plantNameListAtom.reportWrite(value, super.plantNameList, () {
+      super.plantNameList = value;
+    });
+  }
+
+  final _$depshippingPointNameListAtom =
+      Atom(name: '_DashboardStore.depshippingPointNameList');
+
+  @override
+  List<String>? get depshippingPointNameList {
+    _$depshippingPointNameListAtom.reportRead();
+    return super.depshippingPointNameList;
+  }
+
+  @override
+  set depshippingPointNameList(List<String>? value) {
+    _$depshippingPointNameListAtom
+        .reportWrite(value, super.depshippingPointNameList, () {
+      super.depshippingPointNameList = value;
+    });
+  }
+
+  final _$shShipToPartyNameListAtom =
+      Atom(name: '_DashboardStore.shShipToPartyNameList');
+
+  @override
+  List<String>? get shShipToPartyNameList {
+    _$shShipToPartyNameListAtom.reportRead();
+    return super.shShipToPartyNameList;
+  }
+
+  @override
+  set shShipToPartyNameList(List<String>? value) {
+    _$shShipToPartyNameListAtom.reportWrite(value, super.shShipToPartyNameList,
+        () {
+      super.shShipToPartyNameList = value;
+    });
+  }
+
+  final _$regionNameListAtom = Atom(name: '_DashboardStore.regionNameList');
+
+  @override
+  List<String>? get regionNameList {
+    _$regionNameListAtom.reportRead();
+    return super.regionNameList;
+  }
+
+  @override
+  set regionNameList(List<String>? value) {
+    _$regionNameListAtom.reportWrite(value, super.regionNameList, () {
+      super.regionNameList = value;
+    });
+  }
+
+  final _$transportationZoneListAtom =
+      Atom(name: '_DashboardStore.transportationZoneList');
+
+  @override
+  List<String>? get transportationZoneList {
+    _$transportationZoneListAtom.reportRead();
+    return super.transportationZoneList;
+  }
+
+  @override
+  set transportationZoneList(List<String>? value) {
+    _$transportationZoneListAtom
+        .reportWrite(value, super.transportationZoneList, () {
+      super.transportationZoneList = value;
+    });
+  }
+
+  final _$packMaterialsTrNameListAtom =
+      Atom(name: '_DashboardStore.packMaterialsTrNameList');
+
+  @override
+  List<String>? get packMaterialsTrNameList {
+    _$packMaterialsTrNameListAtom.reportRead();
+    return super.packMaterialsTrNameList;
+  }
+
+  @override
+  set packMaterialsTrNameList(List<String>? value) {
+    _$packMaterialsTrNameListAtom
+        .reportWrite(value, super.packMaterialsTrNameList, () {
+      super.packMaterialsTrNameList = value;
+    });
+  }
+
+  final _$inco1ShipmentListAtom =
+      Atom(name: '_DashboardStore.inco1ShipmentList');
+
+  @override
+  List<String>? get inco1ShipmentList {
+    _$inco1ShipmentListAtom.reportRead();
+    return super.inco1ShipmentList;
+  }
+
+  @override
+  set inco1ShipmentList(List<String>? value) {
+    _$inco1ShipmentListAtom.reportWrite(value, super.inco1ShipmentList, () {
+      super.inco1ShipmentList = value;
+    });
+  }
+
+  final _$cpreListAtom = Atom(name: '_DashboardStore.cpreList');
+
+  @override
+  List<String>? get cpreList {
+    _$cpreListAtom.reportRead();
+    return super.cpreList;
+  }
+
+  @override
+  set cpreList(List<String>? value) {
+    _$cpreListAtom.reportWrite(value, super.cpreList, () {
+      super.cpreList = value;
+    });
+  }
+
+  final _$stateNameListAtom = Atom(name: '_DashboardStore.stateNameList');
+
+  @override
+  List<String>? get stateNameList {
+    _$stateNameListAtom.reportRead();
+    return super.stateNameList;
+  }
+
+  @override
+  set stateNameList(List<String>? value) {
+    _$stateNameListAtom.reportWrite(value, super.stateNameList, () {
+      super.stateNameList = value;
+    });
+  }
+
+  final _$transferEndCustomerTypeListAtom =
+      Atom(name: '_DashboardStore.transferEndCustomerTypeList');
+
+  @override
+  List<String>? get transferEndCustomerTypeList {
+    _$transferEndCustomerTypeListAtom.reportRead();
+    return super.transferEndCustomerTypeList;
+  }
+
+  @override
+  set transferEndCustomerTypeList(List<String>? value) {
+    _$transferEndCustomerTypeListAtom
+        .reportWrite(value, super.transferEndCustomerTypeList, () {
+      super.transferEndCustomerTypeList = value;
+    });
+  }
+
   final _$refreshDashboardAsyncAction =
       AsyncAction('_DashboardStore.refreshDashboard');
 
@@ -62,11 +253,12 @@ mixin _$DashboardStore on _DashboardStore, Store {
     return _$refreshDashboardAsyncAction.run(() => super.refreshDashboard());
   }
 
-  final _$readJsonAsyncAction = AsyncAction('_DashboardStore.readJson');
+  final _$loadLocalBASFDataAsyncAction =
+      AsyncAction('_DashboardStore.loadLocalBASFData');
 
   @override
-  Future<void> readJson() {
-    return _$readJsonAsyncAction.run(() => super.readJson());
+  Future<void> loadLocalBASFData() {
+    return _$loadLocalBASFDataAsyncAction.run(() => super.loadLocalBASFData());
   }
 
   final _$getFreightcostAsyncAction =
@@ -96,7 +288,19 @@ mixin _$DashboardStore on _DashboardStore, Store {
     return '''
 currentRoute: ${currentRoute},
 freightCost: ${freightCost},
-materialNameList: ${materialNameList}
+materialNameList: ${materialNameList},
+carrierNameList: ${carrierNameList},
+sbuList: ${sbuList},
+plantNameList: ${plantNameList},
+depshippingPointNameList: ${depshippingPointNameList},
+shShipToPartyNameList: ${shShipToPartyNameList},
+regionNameList: ${regionNameList},
+transportationZoneList: ${transportationZoneList},
+packMaterialsTrNameList: ${packMaterialsTrNameList},
+inco1ShipmentList: ${inco1ShipmentList},
+cpreList: ${cpreList},
+stateNameList: ${stateNameList},
+transferEndCustomerTypeList: ${transferEndCustomerTypeList}
     ''';
   }
 }

@@ -32,13 +32,60 @@ abstract class _DashboardStore with Store {
   @observable
   List<String>? materialNameList;
 
+  @observable
+  List<String>? carrierNameList;
+
+  @observable
+  List<String>? sbuList;
+
+  @observable
+  List<String>? plantNameList;
+
+  @observable
+  List<String>? depshippingPointNameList;
+
+  @observable
+  List<String>? shShipToPartyNameList;
+
+  @observable
+  List<String>? regionNameList;
+
+  @observable
+  List<String>? transportationZoneList;
+
+  @observable
+  List<String>? packMaterialsTrNameList;
+
+  @observable
+  List<String>? inco1ShipmentList;
+
+  @observable
+  List<String>? cpreList;
+
+  @observable
+  List<String>? stateNameList;
+
+  @observable
+  List<String>? transferEndCustomerTypeList;
+
   @action
-  Future<void> readJson() async {
+  Future<void> loadLocalBASFData() async {
     final response = await rootBundle.loadString('assets/json_files/exp_features.json');
     final data = await json.decode(response);
 
     materialNameList = List<String>.from(data['Material Name']);
-    ;
+    carrierNameList = List<String>.from(data['Carrier']);
+    sbuList = List<String>.from(data['SBU']);
+    plantNameList = List<String>.from(data['Plant Name']);
+    depshippingPointNameList = List<String>.from(data['Depshipping point name']);
+    shShipToPartyNameList = List<String>.from(data['SH - Ship-To Party name']);
+    regionNameList = List<String>.from(data['Region']);
+    transportationZoneList = List<String>.from(data['Transportation zone']);
+    packMaterialsTrNameList = List<String>.from(data['Pack Materials Tr']);
+    inco1ShipmentList = List<String>.from(data['Inco 1 (shipment)']);
+    cpreList = List<String>.from(data['CPRE']);
+    stateNameList = List<String>.from(data['Estado']);
+    transferEndCustomerTypeList = List<String>.from(data['Transfer/EndCustomer']);
   }
 
   @action
