@@ -1,9 +1,10 @@
-import 'package:basf_dashboard/app/modules/home/presenter/widgets/dropdown-menus/sbu-name-list.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../dashboard/presenter/stores/dashboard.store.dart';
+import '../widgets/dropdown-menus/carrier-name-list.widget.dart';
 import '../widgets/dropdown-menus/material-name-list.widget.dart';
+import '../widgets/dropdown-menus/sbu-name-list.widget.dart';
 import '../widgets/home-view-currency-box/home-view-currency-box.widget.dart';
 import '../widgets/home-view-header/home-view-header.widget.dart';
 
@@ -116,7 +117,7 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 20.0,
+                                  width: 15.0,
                                 ),
                                 Expanded(
                                   child: MaterialNameList(),
@@ -134,7 +135,33 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                 Container(
                                   constraints: BoxConstraints(maxWidth: 130.0),
                                   child: SBUNameList(),
-                                )
+                                ),
+                                SizedBox(
+                                  width: 15.0,
+                                ),
+                                Expanded(
+                                  child: CarrierNameList(),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Container(
+                            constraints: BoxConstraints(maxHeight: 40.0),
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  constraints: BoxConstraints(maxWidth: 130.0),
+                                  child: SBUNameList(),
+                                ),
+                                SizedBox(
+                                  width: 15.0,
+                                ),
+                                Expanded(
+                                  child: CarrierNameList(),
+                                ),
                               ],
                             ),
                           ),
