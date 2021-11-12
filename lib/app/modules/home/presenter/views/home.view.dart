@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../dashboard/presenter/stores/dashboard.store.dart';
 import '../widgets/home-view-currency-box/home-view-currency-box.widget.dart';
 import '../widgets/home-view-header/home-view-header.widget.dart';
+import '../widgets/material-name-list/material-name-list.widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -14,6 +15,12 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends ModularState<HomeView, DashboardStore> {
   DateTime _selectedDate = DateTime.now();
+
+  @override
+  void didChangeDependencies() async {
+    await store.readJson();
+    super.didChangeDependencies();
+  }
 
   final buttonStyle = ElevatedButton.styleFrom(
     primary: Colors.deepPurple.shade400,
@@ -75,26 +82,43 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                 children: <Widget>[
                   Expanded(
                     child: Container(
+                      padding: EdgeInsets.only(left: 10.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          ElevatedButton.icon(
-                            onPressed: _selectDate,
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.deepPurple.shade500,
-                            ),
-                            label: Text(
-                              '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 14.0,
-                              ),
-                            ),
-                            icon: Icon(
-                              Icons.calendar_today_rounded,
-                              color: Colors.white,
-                              size: 18.0,
+                          Container(
+                            constraints: BoxConstraints(maxHeight: 35.0),
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  height: double.infinity,
+                                  child: ElevatedButton.icon(
+                                    onPressed: _selectDate,
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.deepPurple.shade500,
+                                    ),
+                                    label: Text(
+                                      '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 14.0,
+                                      ),
+                                    ),
+                                    icon: Icon(
+                                      Icons.calendar_today_rounded,
+                                      color: Colors.white,
+                                      size: 18.0,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 20.0,
+                                ),
+                                Expanded(
+                                  child: MaterialNameList(),
+                                ),
+                              ],
                             ),
                           ),
                           _textFieldBuilder('GDW (Kg)'),

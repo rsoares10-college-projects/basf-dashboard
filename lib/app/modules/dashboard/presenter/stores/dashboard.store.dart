@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -15,15 +18,27 @@ abstract class _DashboardStore with Store {
   @observable
   String currentRoute = '/dashboard/home';
 
+  @action
+  void setRoute(String route) => currentRoute = route;
+
   @observable
   double freightCost = 0.0;
 
   @action
-  void setRoute(String route) => currentRoute = route;
-
-  @action
   Future<void> refreshDashboard() async {
     await currencyStore.refresh();
+  }
+
+  @observable
+  List<String>? materialNameList;
+
+  @action
+  Future<void> readJson() async {
+    final response = await rootBundle.loadString('assets/json_files/exp_features.json');
+    final data = await json.decode(response);
+
+    materialNameList = List<String>.from(data['Material Name']);
+    ;
   }
 
   @action

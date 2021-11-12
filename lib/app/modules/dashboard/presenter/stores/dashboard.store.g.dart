@@ -39,12 +39,34 @@ mixin _$DashboardStore on _DashboardStore, Store {
     });
   }
 
+  final _$materialNameListAtom = Atom(name: '_DashboardStore.materialNameList');
+
+  @override
+  List<String>? get materialNameList {
+    _$materialNameListAtom.reportRead();
+    return super.materialNameList;
+  }
+
+  @override
+  set materialNameList(List<String>? value) {
+    _$materialNameListAtom.reportWrite(value, super.materialNameList, () {
+      super.materialNameList = value;
+    });
+  }
+
   final _$refreshDashboardAsyncAction =
       AsyncAction('_DashboardStore.refreshDashboard');
 
   @override
   Future<void> refreshDashboard() {
     return _$refreshDashboardAsyncAction.run(() => super.refreshDashboard());
+  }
+
+  final _$readJsonAsyncAction = AsyncAction('_DashboardStore.readJson');
+
+  @override
+  Future<void> readJson() {
+    return _$readJsonAsyncAction.run(() => super.readJson());
   }
 
   final _$getFreightcostAsyncAction =
@@ -73,7 +95,8 @@ mixin _$DashboardStore on _DashboardStore, Store {
   String toString() {
     return '''
 currentRoute: ${currentRoute},
-freightCost: ${freightCost}
+freightCost: ${freightCost},
+materialNameList: ${materialNameList}
     ''';
   }
 }
