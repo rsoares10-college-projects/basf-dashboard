@@ -10,6 +10,7 @@ import '../widgets/dropdown-menus/plant-name-list.widget.dart';
 import '../widgets/dropdown-menus/region-list.widget.dart';
 import '../widgets/dropdown-menus/sbu-name-list.widget.dart';
 import '../widgets/dropdown-menus/state-list.widget.dart';
+import '../widgets/dropdown-menus/transfer-end-customer-radio-box.widget.dart';
 import '../widgets/dropdown-menus/transportation-zone-list.widget.dart';
 import '../widgets/home-view-currency-box/home-view-currency-box.widget.dart';
 import '../widgets/home-view-header/home-view-header.widget.dart';
@@ -228,15 +229,15 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                   width: 15.0,
                                 ),
                                 Expanded(
-                                  child: CarrierNameList(),
+                                  child: TransferEndCustomerRadioBox(),
                                 ),
                               ],
                             ),
                           ),
-                          _textFieldBuilder(label: 'GDW (Kg)'),
-                          _textFieldBuilder(label: 'Diesel s10'),
-                          _textFieldBuilder(label: 'Special Processing Indicator'),
-                          _textFieldBuilder(label: 'Delivery Item'),
+                          // _textFieldBuilder(label: 'GDW (Kg)'),
+                          // _textFieldBuilder(label: 'Diesel s10'),
+                          // _textFieldBuilder(label: 'Special Processing Indicator'),
+                          // _textFieldBuilder(label: 'Delivery Item'),
                         ],
                       ),
                     ),
