@@ -1,5 +1,5 @@
-import 'package:basf_dashboard/app/modules/home/presenter/widgets/dropdown-menus/transfer-end-customer-radio-box.widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../dashboard/presenter/stores/dashboard.store.dart';
@@ -14,6 +14,7 @@ import '../widgets/dropdown-menus/region-list.widget.dart';
 import '../widgets/dropdown-menus/sbu-name-list.widget.dart';
 import '../widgets/dropdown-menus/sh-ship-to-party-list.widget.dart';
 import '../widgets/dropdown-menus/state-list.widget.dart';
+import '../widgets/dropdown-menus/transfer-end-customer-radio-box.widget.dart';
 import '../widgets/dropdown-menus/transportation-zone-list.widget.dart';
 import '../widgets/home-view-currency-box/home-view-currency-box.widget.dart';
 import '../widgets/home-view-header/home-view-header.widget.dart';
@@ -165,6 +166,13 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(5.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            offset: Offset(0.0, 2.0),
+                            blurRadius: 2.0,
+                          ),
+                        ],
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -355,6 +363,13 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                offset: Offset(0.0, 2.0),
+                                blurRadius: 2.0,
+                              ),
+                            ],
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -489,6 +504,13 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                offset: Offset(0.0, 2.0),
+                                blurRadius: 2.0,
+                              ),
+                            ],
                           ),
                           child: TransferEndCustomerRadioBox(),
                         ),
@@ -496,18 +518,27 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                           height: 20.0,
                         ),
                         Container(
-                          constraints: BoxConstraints(maxHeight: 50.0, maxWidth: 250.0),
+                          constraints: BoxConstraints(maxHeight: 50.0, maxWidth: 280.0),
                           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                           height: double.infinity,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                offset: Offset(0.0, 2.0),
+                                blurRadius: 2.0,
+                              ),
+                            ],
                           ),
                           child: Row(
                             children: <Widget>[
                               ElevatedButton(
-                                onPressed: store.printData,
+                                onPressed: () async {
+                                  await store.getFreightcost();
+                                },
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.deepPurple.shade500,
                                 ),
@@ -523,12 +554,28 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                               SizedBox(
                                 width: 20.0,
                               ),
-                              Text(
-                                'R\$ 0,00',
-                                style: TextStyle(
-                                  color: Colors.deepPurpleAccent,
-                                  fontSize: 22.0,
-                                  fontWeight: FontWeight.bold,
+                              Expanded(
+                                child: Observer(
+                                  builder: (_) => store.freightCost == null
+                                      ? Center(
+                                          child: SizedBox(
+                                            height: 25.0,
+                                            width: 25.0,
+                                            child: CircularProgressIndicator(
+                                              color: Colors.deepPurpleAccent,
+                                            ),
+                                          ),
+                                        )
+                                      : FittedBox(
+                                          child: Text(
+                                            'R\$ ${store.freightCost}',
+                                            style: TextStyle(
+                                              color: Colors.deepPurpleAccent,
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
                                 ),
                               ),
                             ],

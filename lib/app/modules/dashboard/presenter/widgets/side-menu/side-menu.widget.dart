@@ -14,100 +14,105 @@ class SideMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerRight,
-      child: Card(
-        elevation: 1.0,
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
+      color: Colors.transparent,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.circular(5.0),
-        ),
-        child: Container(
-          constraints: BoxConstraints(maxWidth: 60.0),
-          width: double.infinity,
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(
-                  height: 10.0,
-                ),
-                Flexible(
-                  flex: 0,
-                  child: SideMenuButton(
-                    icon: FontAwesomeIcons.home,
-                    label: 'Home',
-                    routeTag: '/dashboard/home',
-                    onPressed: () {
-                      dashboardStore.setRoute('/dashboard/home');
-                      Modular.to.navigate('/dashboard/home');
-                    },
-                  ),
-                ),
-                Flexible(
-                  flex: 0,
-                  child: SideMenuButton(
-                    icon: FontAwesomeIcons.chartLine,
-                    label: 'Analytics',
-                    routeTag: '/dashboard/analytics',
-                    onPressed: () {
-                      dashboardStore.setRoute('/dashboard/analytics');
-                      Modular.to.navigate('/dashboard/analytics');
-                    },
-                  ),
-                ),
-                Flexible(
-                  flex: 0,
-                  child: SideMenuButton(
-                    icon: FontAwesomeIcons.coins,
-                    label: 'Moeda',
-                    routeTag: '/dashboard/currency',
-                    onPressed: () {
-                      dashboardStore.setRoute('/dashboard/currency');
-                      Modular.to.navigate('/dashboard/currency');
-                    },
-                  ),
-                ),
-                Flexible(
-                  flex: 0,
-                  child: SideMenuButton(
-                    icon: Icons.chat_bubble,
-                    label: 'Social',
-                    routeTag: '/dashboard/soial',
-                    onPressed: () {
-                      dashboardStore.setRoute('/dashboard/soial');
-                      Modular.to.navigate('/dashboard/social');
-                    },
-                  ),
-                ),
-                Flexible(
-                  flex: 0,
-                  child: SideMenuButton(
-                    icon: FontAwesomeIcons.gasPump,
-                    label: 'Diesel',
-                    routeTag: '/dashboard/diesel',
-                    onPressed: () {
-                      dashboardStore.setRoute('/dashboard/diesel');
-                      Modular.to.navigate('/dashboard/diesel');
-                    },
-                  ),
-                ),
-                Spacer(),
-                Flexible(
-                  flex: 0,
-                  child: SideMenuButton(
-                    icon: FontAwesomeIcons.solidQuestionCircle,
-                    label: 'About',
-                    routeTag: '/dashboard/about',
-                    onPressed: () {
-                      dashboardStore.setRoute('/dashboard/about');
-                      Modular.to.navigate('/dashboard/about');
-                    },
-                  ),
-                ),
-              ],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              offset: Offset(0.0, 2.0),
+              blurRadius: 2.0,
             ),
+          ],
+        ),
+        constraints: BoxConstraints(maxWidth: 60.0),
+        width: double.infinity,
+        alignment: Alignment.topRight,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(
+                height: 10.0,
+              ),
+              Flexible(
+                flex: 0,
+                child: SideMenuButton(
+                  icon: FontAwesomeIcons.home,
+                  label: 'Home',
+                  routeTag: '/dashboard/home',
+                  onPressed: () {
+                    dashboardStore.setRoute('/dashboard/home');
+                    Modular.to.navigate('/dashboard/home');
+                  },
+                ),
+              ),
+              Flexible(
+                flex: 0,
+                child: SideMenuButton(
+                  icon: FontAwesomeIcons.chartLine,
+                  label: 'Analytics',
+                  routeTag: '/dashboard/analytics',
+                  onPressed: () {
+                    dashboardStore.setRoute('/dashboard/analytics');
+                    Modular.to.navigate('/dashboard/analytics');
+                  },
+                ),
+              ),
+              Flexible(
+                flex: 0,
+                child: SideMenuButton(
+                  icon: FontAwesomeIcons.coins,
+                  label: 'Moeda',
+                  routeTag: '/dashboard/currency',
+                  onPressed: () {
+                    dashboardStore.setRoute('/dashboard/currency');
+                    Modular.to.navigate('/dashboard/currency');
+                  },
+                ),
+              ),
+              Flexible(
+                flex: 0,
+                child: SideMenuButton(
+                  icon: Icons.chat_bubble,
+                  label: 'Social',
+                  routeTag: '/dashboard/soial',
+                  onPressed: () {
+                    dashboardStore.setRoute('/dashboard/soial');
+                    Modular.to.navigate('/dashboard/social');
+                  },
+                ),
+              ),
+              Flexible(
+                flex: 0,
+                child: SideMenuButton(
+                  icon: FontAwesomeIcons.gasPump,
+                  label: 'Diesel',
+                  routeTag: '/dashboard/diesel',
+                  onPressed: () {
+                    dashboardStore.setRoute('/dashboard/diesel');
+                    Modular.to.navigate('/dashboard/diesel');
+                  },
+                ),
+              ),
+              Spacer(),
+              Flexible(
+                flex: 0,
+                child: SideMenuButton(
+                  icon: FontAwesomeIcons.solidQuestionCircle,
+                  label: 'About',
+                  routeTag: '/dashboard/about',
+                  onPressed: () {
+                    dashboardStore.setRoute('/dashboard/about');
+                    Modular.to.navigate('/dashboard/about');
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),

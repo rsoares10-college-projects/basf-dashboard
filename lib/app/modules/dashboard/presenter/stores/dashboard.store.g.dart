@@ -27,13 +27,13 @@ mixin _$DashboardStore on _DashboardStore, Store {
   final _$freightCostAtom = Atom(name: '_DashboardStore.freightCost');
 
   @override
-  double get freightCost {
+  double? get freightCost {
     _$freightCostAtom.reportRead();
     return super.freightCost;
   }
 
   @override
-  set freightCost(double value) {
+  set freightCost(double? value) {
     _$freightCostAtom.reportWrite(value, super.freightCost, () {
       super.freightCost = value;
     });

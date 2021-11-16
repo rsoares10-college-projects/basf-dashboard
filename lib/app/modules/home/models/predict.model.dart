@@ -1,27 +1,27 @@
 import 'dart:convert';
 
 class PredictModel {
-  int deliveryItem;
-  String materialName;
-  String sBU;
-  int specialProcessingIndicator;
-  String carrier;
-  String plantName;
-  String depshippingPointName;
-  String sHShipToPartyName;
-  String region;
-  String transportationZone;
-  String packMaterialsTr;
-  String inco1Shipment;
-  double gDWKg;
-  String cPRE;
-  String estado;
-  String transferEndCustomer;
-  double dieselS10;
-  double dolarCompra;
-  double dolarVenda;
-  double euroCompra;
-  double euroVenda;
+  int? deliveryItem;
+  String? materialName;
+  String? sBU;
+  int? specialProcessingIndicator;
+  String? carrier;
+  String? plantName;
+  String? depshippingPointName;
+  String? sHShipToPartyName;
+  String? region;
+  String? transportationZone;
+  String? packMaterialsTr;
+  String? inco1Shipment;
+  double? gDWKg;
+  String? cPRE;
+  String? estado;
+  String? transferEndCustomer;
+  double? dieselS10;
+  double? dolarCompra;
+  double? dolarVenda;
+  double? euroCompra;
+  double? euroVenda;
   PredictModel({
     required this.deliveryItem,
     required this.materialName,
@@ -48,27 +48,27 @@ class PredictModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'deliveryItem': deliveryItem,
-      'materialName': materialName,
-      'sBU': sBU,
-      'specialProcessingIndicator': specialProcessingIndicator,
-      'carrier': carrier,
-      'plantName': plantName,
-      'depshippingPointName': depshippingPointName,
-      'sHShipToPartyName': sHShipToPartyName,
-      'region': region,
-      'transportationZone': transportationZone,
-      'packMaterialsTr': packMaterialsTr,
-      'inco1Shipment': inco1Shipment,
-      'gDWKg': gDWKg,
-      'cPRE': cPRE,
-      'estado': estado,
-      'transferEndCustomer': transferEndCustomer,
-      'dieselS10': dieselS10,
-      'dolarCompra': dolarCompra,
-      'dolarVenda': dolarVenda,
-      'euroCompra': euroCompra,
-      'euroVenda': euroVenda,
+      'Delivery Item': deliveryItem,
+      'Material Name': materialName,
+      'SBU': sBU,
+      'Special Processing Indicator': specialProcessingIndicator,
+      'Carrier': carrier,
+      'Plant Name': plantName,
+      'Depshipping point name': depshippingPointName,
+      'SH - Ship-To Party name': sHShipToPartyName,
+      'Region': region,
+      'Transportation zone': transportationZone,
+      'Pack Materials Tr': packMaterialsTr,
+      'Inco 1 (shipment)': inco1Shipment,
+      'GDW (Kg)': gDWKg,
+      'CPRE': cPRE,
+      'Estado': estado,
+      'Transfer/EndCustomer': transferEndCustomer,
+      'Diesel S10': dieselS10,
+      'Dolar_compra': dolarCompra,
+      'Dolar_venda': dolarVenda,
+      'Euro_compra': euroCompra,
+      'Euro_venda': euroVenda,
     };
   }
 

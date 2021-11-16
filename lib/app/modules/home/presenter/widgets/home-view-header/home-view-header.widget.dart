@@ -16,6 +16,13 @@ class HomeViewHeader extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(5.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                offset: Offset(0.0, 2.0),
+                blurRadius: 2.0,
+              ),
+            ],
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),

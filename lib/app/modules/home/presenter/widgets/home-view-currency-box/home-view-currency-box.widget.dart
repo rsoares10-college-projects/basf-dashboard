@@ -34,6 +34,13 @@ class _HomeViewCurrencyBoxState extends State<HomeViewCurrencyBox> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(0.0, 2.0),
+            blurRadius: 2.0,
+          ),
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

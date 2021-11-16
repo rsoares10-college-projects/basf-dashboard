@@ -6,6 +6,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../currency/presenter/stores/currency.store.dart';
+import '../../../home/models/predict.model.dart';
 
 part 'dashboard.store.g.dart';
 
@@ -22,7 +23,7 @@ abstract class _DashboardStore with Store {
   void setRoute(String route) => currentRoute = route;
 
   @observable
-  double freightCost = 0.0;
+  double? freightCost = 0.0;
 
   @action
   Future<void> refreshDashboard() async {
@@ -69,7 +70,7 @@ abstract class _DashboardStore with Store {
   List<String>? transferEndCustomerTypeList;
 
   @observable
-  int? deliveryItem;
+  int? deliveryItem = 1;
 
   @observable
   String? materialName;
@@ -78,7 +79,7 @@ abstract class _DashboardStore with Store {
   String? sBU;
 
   @observable
-  int? specialProcessingIndicator;
+  int? specialProcessingIndicator = 1;
 
   @observable
   String? carrier;
@@ -105,7 +106,7 @@ abstract class _DashboardStore with Store {
   String? inco1Shipment;
 
   @observable
-  double? gDWKg;
+  double? gDWKg = 0.0;
 
   @observable
   String? cPRE;
@@ -117,19 +118,19 @@ abstract class _DashboardStore with Store {
   String? transferEndCustomer;
 
   @observable
-  double? dieselS10;
+  double? dieselS10 = 0.0;
 
   @observable
-  double? dolarCompra;
+  double? dolarCompra = 0.0;
 
   @observable
-  double? dolarVenda;
+  double? dolarVenda = 0.0;
 
   @observable
-  double? euroCompra;
+  double? euroCompra = 0.0;
 
   @observable
-  double? euroVenda;
+  double? euroVenda = 0.0;
 
   @observable
   int? radioGroupValue = 0;
@@ -138,31 +139,6 @@ abstract class _DashboardStore with Store {
   void onRadioChane(int? value) {
     radioGroupValue = value;
     transferEndCustomer = transferEndCustomerTypeList?[value!];
-  }
-
-  printData() {
-    print('**Current data being sent');
-    print('materialName: $materialName');
-    print('Delivery Item: $deliveryItem');
-    print('sBU: $sBU');
-    print('specialProcessingIndicator: $specialProcessingIndicator');
-    print('carrier: $carrier');
-    print('plantName: $plantName');
-    print('depshippingPointName: $depshippingPointName');
-    print('sHShipToPartyName: $sHShipToPartyName');
-    print('region: $region');
-    print('transportationZone: $transportationZone');
-    print('packMaterialsTr: $packMaterialsTr');
-    print('inco1Shipment: $inco1Shipment');
-    print('gDWKg: $gDWKg');
-    print('cPRE: $cPRE');
-    print('estado: $estado');
-    print('transferEndCustomer: $transferEndCustomer');
-    print('dieselS10: $dieselS10');
-    print('dolarCompra: $dolarCompra');
-    print('dolarVenda: $dolarVenda');
-    print('euroCompra: $euroCompra');
-    print('euroVenda: $euroVenda');
   }
 
   @action
@@ -198,42 +174,41 @@ abstract class _DashboardStore with Store {
 
   @action
   Future<void> getFreightcost() async {
+    freightCost = null;
+
+    final predictModel = PredictModel(
+      materialName: materialName,
+      dolarVenda: dolarVenda,
+      gDWKg: gDWKg,
+      cPRE: cPRE,
+      specialProcessingIndicator: specialProcessingIndicator,
+      carrier: carrier,
+      deliveryItem: deliveryItem,
+      depshippingPointName: depshippingPointName,
+      dieselS10: dieselS10,
+      dolarCompra: dolarCompra,
+      estado: estado,
+      euroCompra: euroCompra,
+      euroVenda: euroVenda,
+      inco1Shipment: inco1Shipment,
+      packMaterialsTr: packMaterialsTr,
+      plantName: plantName,
+      region: region,
+      sBU: sBU,
+      sHShipToPartyName: sHShipToPartyName,
+      transferEndCustomer: transferEndCustomer,
+      transportationZone: transportationZone,
+    );
+
+    final data = predictModel.toMap();
+
     try {
-      final response = await dio.post(
-        'http://54.165.230.28:8000/api/currency/cost',
-        data: {
-          "Calendar Year/Month": "segunda-feira, 1 de outubro de 2018",
-          "Delivery Item": 10,
-          "Material": "BART/000000000050377401",
-          "Material Name": "EUPERLAN BRIGHT 200KG 1H2",
-          "OD": "EM",
-          "BU": "EMY",
-          "SBU": "EMB",
-          "Special Processing Indicator": 1200,
-          "Carrier": "LOURENCO TRANSPORTE E COMERCIO LTDA",
-          "Plant": "6BBC",
-          "Plant Name": "BASF S.A - Jacareí",
-          "Depshipping point": "BRC1",
-          "Depshipping point name": "SP - Jacarei",
-          "SH - Ship-To Party": "APA/1084500",
-          "SH - Ship-To Party name": "PROVIDER IND E COM SA",
-          "City": "LOUVEIRA",
-          "Postal Code": "BR/13290-000",
-          "Region": "BR/SP",
-          "Transportation zone": "BRASP09",
-          "Pack Materials Tr": "TRUCK -6 TO",
-          "Inco 1 (shipment)": "CIP",
-          "Country TO": "Brazil",
-          "Gosss Delivery Wt-KG": 209.4,
-          "OD Special": "EM",
-          "Cidade Origem": "BASF S.A - Jacareí",
-          "CPRE": "FTL",
-          "Estado": "SP",
-          "Transfer/EndCustomer": "End Customer",
-          "Cidade/Estado": "LOUVEIRA/SP"
-        },
-      );
-      freightCost = response.data['score'];
+      final response = await dio.post('http://54.165.230.28:8000/api/currency/cost', data: data);
+      final doubleFreight = response.data["data"]["Preço estimado do frete"].toString();
+      final strFreight = double.parse(doubleFreight).toStringAsFixed(2);
+
+      print(freightCost);
+      freightCost = double.parse(strFreight);
     } on Exception catch (e) {
       print(e);
     }
