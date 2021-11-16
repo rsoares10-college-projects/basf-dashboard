@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../dashboard/presenter/stores/dashboard.store.dart';
 import '../widgets/dropdown-menus/carrier-name-list.widget.dart';
+import '../widgets/dropdown-menus/inco-1-shipment-list.widget.dart';
 import '../widgets/dropdown-menus/material-name-list.widget.dart';
 import '../widgets/dropdown-menus/pack-material-list.widget.dart';
 import '../widgets/dropdown-menus/plant-name-list.widget.dart';
@@ -208,6 +209,26 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                 ),
                                 Expanded(
                                   child: PackMaterialList(),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Container(
+                            constraints: BoxConstraints(maxHeight: 40.0),
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  constraints: BoxConstraints(maxWidth: 130.0),
+                                  child: Inco1ShipmentList(),
+                                ),
+                                SizedBox(
+                                  width: 15.0,
+                                ),
+                                Expanded(
+                                  child: CarrierNameList(),
                                 ),
                               ],
                             ),
