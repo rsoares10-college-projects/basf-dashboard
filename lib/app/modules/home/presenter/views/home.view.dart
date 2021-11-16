@@ -7,6 +7,7 @@ import '../widgets/dropdown-menus/material-name-list.widget.dart';
 import '../widgets/dropdown-menus/plant-name-list.widget.dart';
 import '../widgets/dropdown-menus/region-list.widget.dart';
 import '../widgets/dropdown-menus/sbu-name-list.widget.dart';
+import '../widgets/dropdown-menus/state-list.widget.dart';
 import '../widgets/dropdown-menus/transportation-zone-list.widget.dart';
 import '../widgets/home-view-currency-box/home-view-currency-box.widget.dart';
 import '../widgets/home-view-header/home-view-header.widget.dart';
@@ -199,7 +200,7 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                   width: 15.0,
                                 ),
                                 Expanded(
-                                  child: PlantNameList(),
+                                  child: StateList(),
                                 ),
                                 SizedBox(
                                   width: 15.0,
