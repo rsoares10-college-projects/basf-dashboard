@@ -77,8 +77,9 @@ class _CarrierNameListState extends ModularState<CarrierNameList, DashboardStore
                   labelText: "Operadora",
                   contentPadding: EdgeInsets.only(left: 5.0, top: 5.0),
                   border: OutlineInputBorder(
-                    gapPadding: 5.0,
+                    borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                     borderRadius: BorderRadius.circular(5.0),
+                    gapPadding: 5.0,
                   ),
                 ),
                 onChanged: print,

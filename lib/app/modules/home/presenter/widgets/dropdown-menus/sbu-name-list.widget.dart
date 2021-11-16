@@ -77,6 +77,7 @@ class _SBUNameListState extends ModularState<SBUNameList, DashboardStore> with S
                   labelText: "SBU",
                   contentPadding: EdgeInsets.only(left: 5.0, top: 5.0),
                   border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                     gapPadding: 5.0,
                     borderRadius: BorderRadius.circular(5.0),
                   ),

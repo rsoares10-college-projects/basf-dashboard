@@ -19,53 +19,81 @@ class HomeViewCurrencyBox extends StatefulWidget {
 }
 
 class _HomeViewCurrencyBoxState extends State<HomeViewCurrencyBox> {
+  final _textFieldLabelStyle = TextStyle(
+    fontSize: 12,
+    color: Colors.deepPurple,
+    fontWeight: FontWeight.bold,
+  );
+
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: 170.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
+      constraints: BoxConstraints(maxHeight: 90.0),
+      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+      height: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Card(
-            elevation: 1.0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Preço Dólar',
+                style: _textFieldLabelStyle,
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Expanded(
+                child: Container(
+                  constraints: BoxConstraints(maxWidth: 240.0),
+                  child: Row(
                     children: <Widget>[
-                      Expanded(
-                        child: Container(
-                          child: Column(
-                            children: <Widget>[
-                              widget.dollarBuyPriceTextField as Widget,
-                              widget.dollarSellPriceTextField as Widget,
-                            ],
-                          ),
-                        ),
-                      ),
+                      Expanded(child: widget.dollarBuyPriceTextField as Widget),
                       SizedBox(
-                        width: 20.0,
+                        width: 10.0,
                       ),
-                      Expanded(
-                        child: Container(
-                          child: Column(
-                            children: <Widget>[
-                              widget.euroBuyPriceTextField as Widget,
-                              widget.euroSellPriceTextField as Widget,
-                            ],
-                          ),
-                        ),
-                      ),
+                      Expanded(child: widget.dollarSellPriceTextField as Widget),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
+            ],
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Preço Euro',
+                style: _textFieldLabelStyle,
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Expanded(
+                child: Container(
+                  constraints: BoxConstraints(maxWidth: 240.0),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(child: widget.euroBuyPriceTextField as Widget),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Expanded(child: widget.euroSellPriceTextField as Widget),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

@@ -79,6 +79,7 @@ class _PlantNameListState extends ModularState<PlantNameList, DashboardStore> wi
                   border: OutlineInputBorder(
                     gapPadding: 5.0,
                     borderRadius: BorderRadius.circular(5.0),
+                    borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                   ),
                 ),
                 onChanged: print,

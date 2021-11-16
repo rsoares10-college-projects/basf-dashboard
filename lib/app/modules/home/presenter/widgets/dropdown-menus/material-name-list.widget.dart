@@ -77,6 +77,7 @@ class _MaterialNameListState extends ModularState<MaterialNameList, DashboardSto
                   labelText: "Material",
                   contentPadding: EdgeInsets.all(5.0),
                   border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                     borderRadius: BorderRadius.circular(5.0),
                     gapPadding: 5.0,
                   ),

@@ -53,12 +53,24 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
     }
   }
 
-  Container _textFieldBuilder(String label) {
+  Container _textFieldBuilder({String? label, String? hintText}) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 60.0),
+      constraints: BoxConstraints(maxHeight: 40.0),
       child: TextField(
         decoration: InputDecoration(
-          labelText: label,
+          labelText: label ?? null,
+          hintText: hintText ?? null,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
+          ),
+          hintStyle: TextStyle(
+            fontSize: 12.0,
+            color: Colors.grey,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5.0),
+            gapPadding: 5.0,
+          ),
           labelStyle: TextStyle(
             color: Colors.deepPurple,
             fontSize: 14.0,
@@ -88,6 +100,7 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                     child: Container(
                       padding: EdgeInsets.only(left: 10.0),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Container(
@@ -167,23 +180,23 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                               ],
                             ),
                           ),
-                          _textFieldBuilder('GDW (Kg)'),
-                          _textFieldBuilder('Diesel s10'),
-                          _textFieldBuilder('Special Processing Indicator'),
-                          _textFieldBuilder('Delivery Item'),
+                          _textFieldBuilder(label: 'GDW (Kg)'),
+                          _textFieldBuilder(label: 'Diesel s10'),
+                          _textFieldBuilder(label: 'Special Processing Indicator'),
+                          _textFieldBuilder(label: 'Delivery Item'),
                         ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 25.0,
+                    width: 20.0,
                   ),
                   Expanded(
                     child: HomeViewCurrencyBox(
-                      dollarBuyPriceTextField: _textFieldBuilder('Dóllar compra'),
-                      dollarSellPriceTextField: _textFieldBuilder('Dóllar venda'),
-                      euroBuyPriceTextField: _textFieldBuilder('Euro Compra'),
-                      euroSellPriceTextField: _textFieldBuilder('Euro Venda'),
+                      dollarBuyPriceTextField: _textFieldBuilder(hintText: 'Dólar Compra'),
+                      dollarSellPriceTextField: _textFieldBuilder(hintText: 'Dólar Venda'),
+                      euroBuyPriceTextField: _textFieldBuilder(hintText: 'Euro Compra'),
+                      euroSellPriceTextField: _textFieldBuilder(hintText: 'Euro Venda'),
                     ),
                   ),
                 ],
