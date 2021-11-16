@@ -31,6 +31,12 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
     super.didChangeDependencies();
   }
 
+  final _textFieldLabelStyle = TextStyle(
+    fontSize: 12,
+    color: Colors.deepPurple,
+    fontWeight: FontWeight.bold,
+  );
+
   final buttonStyle = ElevatedButton.styleFrom(
     primary: Colors.deepPurple.shade400,
     elevation: 1.0,
@@ -234,10 +240,6 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                               ],
                             ),
                           ),
-                          // _textFieldBuilder(label: 'GDW (Kg)'),
-                          // _textFieldBuilder(label: 'Diesel s10'),
-                          // _textFieldBuilder(label: 'Special Processing Indicator'),
-                          // _textFieldBuilder(label: 'Delivery Item'),
                         ],
                       ),
                     ),
@@ -246,11 +248,169 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                     width: 20.0,
                   ),
                   Expanded(
-                    child: HomeViewCurrencyBox(
-                      dollarBuyPriceTextField: _textFieldBuilder(hintText: 'Dólar Compra'),
-                      dollarSellPriceTextField: _textFieldBuilder(hintText: 'Dólar Venda'),
-                      euroBuyPriceTextField: _textFieldBuilder(hintText: 'Euro Compra'),
-                      euroSellPriceTextField: _textFieldBuilder(hintText: 'Euro Venda'),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        HomeViewCurrencyBox(
+                          dollarBuyPriceTextField: _textFieldBuilder(hintText: 'Dólar Compra'),
+                          dollarSellPriceTextField: _textFieldBuilder(hintText: 'Dólar Venda'),
+                          euroBuyPriceTextField: _textFieldBuilder(hintText: 'Euro Compra'),
+                          euroSellPriceTextField: _textFieldBuilder(hintText: 'Euro Venda'),
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Container(
+                          constraints: BoxConstraints(maxHeight: 90.0),
+                          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Container(
+                                        constraints: BoxConstraints(maxWidth: 105.0),
+                                        width: double.infinity,
+                                        child: Text(
+                                          'Preço Diesel (S10)',
+                                          style: _textFieldLabelStyle,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20.0,
+                                      ),
+                                      Container(
+                                        constraints: BoxConstraints(maxWidth: 110.0),
+                                        width: double.infinity,
+                                        child: Text(
+                                          'Delivery Item',
+                                          style: _textFieldLabelStyle,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      constraints: BoxConstraints(maxWidth: 240.0),
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(child: _textFieldBuilder(hintText: 'Diesel S10 ')),
+                                          SizedBox(
+                                            width: 10.0,
+                                          ),
+                                          Expanded(child: _textFieldBuilder(hintText: 'Delivery Item ')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Container(
+                                        constraints: BoxConstraints(maxWidth: 105.0),
+                                        width: double.infinity,
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          'GDW (Kg)',
+                                          style: _textFieldLabelStyle,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20.0,
+                                      ),
+                                      Container(
+                                        constraints: BoxConstraints(maxWidth: 110.0),
+                                        width: double.infinity,
+                                        child: Text(
+                                          'Special PI',
+                                          style: _textFieldLabelStyle,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      constraints: BoxConstraints(maxWidth: 240.0),
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(child: _textFieldBuilder(hintText: 'GDW')),
+                                          SizedBox(
+                                            width: 10.0,
+                                          ),
+                                          Expanded(
+                                            child: _textFieldBuilder(hintText: 'Special PI'),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Container(
+                          constraints: BoxConstraints(maxHeight: 50.0, maxWidth: 250.0),
+                          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                          height: double.infinity,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              ElevatedButton(
+                                onPressed: _selectDate,
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.deepPurple.shade500,
+                                ),
+                                child: Text(
+                                  'ESTIMAR FRETE',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 14.0,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 20.0,
+                              ),
+                              Text(
+                                'R\$ 0,00',
+                                style: TextStyle(
+                                  color: Colors.deepPurpleAccent,
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
