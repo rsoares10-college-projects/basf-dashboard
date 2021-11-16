@@ -82,7 +82,9 @@ class _MaterialNameListState extends ModularState<MaterialNameList, DashboardSto
                     gapPadding: 5.0,
                   ),
                 ),
-                onChanged: print,
+                onChanged: (value) {
+                  store.materialName = value;
+                },
                 selectedItem: store.materialNameList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(

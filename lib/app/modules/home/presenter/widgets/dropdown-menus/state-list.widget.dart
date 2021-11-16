@@ -82,7 +82,9 @@ class _StateListState extends ModularState<StateList, DashboardStore> with Singl
                     borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                   ),
                 ),
-                onChanged: print,
+                onChanged: (value) {
+                  store.estado = value;
+                },
                 selectedItem: store.stateNameList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(

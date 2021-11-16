@@ -82,7 +82,9 @@ class _PlantNameListState extends ModularState<PlantNameList, DashboardStore> wi
                     borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                   ),
                 ),
-                onChanged: print,
+                onChanged: (value) {
+                  store.plantName = value;
+                },
                 selectedItem: store.plantNameList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(

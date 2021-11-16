@@ -245,6 +245,343 @@ mixin _$DashboardStore on _DashboardStore, Store {
     });
   }
 
+  final _$deliveryItemAtom = Atom(name: '_DashboardStore.deliveryItem');
+
+  @override
+  int? get deliveryItem {
+    _$deliveryItemAtom.reportRead();
+    return super.deliveryItem;
+  }
+
+  @override
+  set deliveryItem(int? value) {
+    _$deliveryItemAtom.reportWrite(value, super.deliveryItem, () {
+      super.deliveryItem = value;
+    });
+  }
+
+  final _$materialNameAtom = Atom(name: '_DashboardStore.materialName');
+
+  @override
+  String? get materialName {
+    _$materialNameAtom.reportRead();
+    return super.materialName;
+  }
+
+  @override
+  set materialName(String? value) {
+    _$materialNameAtom.reportWrite(value, super.materialName, () {
+      super.materialName = value;
+    });
+  }
+
+  final _$sBUAtom = Atom(name: '_DashboardStore.sBU');
+
+  @override
+  String? get sBU {
+    _$sBUAtom.reportRead();
+    return super.sBU;
+  }
+
+  @override
+  set sBU(String? value) {
+    _$sBUAtom.reportWrite(value, super.sBU, () {
+      super.sBU = value;
+    });
+  }
+
+  final _$specialProcessingIndicatorAtom =
+      Atom(name: '_DashboardStore.specialProcessingIndicator');
+
+  @override
+  int? get specialProcessingIndicator {
+    _$specialProcessingIndicatorAtom.reportRead();
+    return super.specialProcessingIndicator;
+  }
+
+  @override
+  set specialProcessingIndicator(int? value) {
+    _$specialProcessingIndicatorAtom
+        .reportWrite(value, super.specialProcessingIndicator, () {
+      super.specialProcessingIndicator = value;
+    });
+  }
+
+  final _$carrierAtom = Atom(name: '_DashboardStore.carrier');
+
+  @override
+  String? get carrier {
+    _$carrierAtom.reportRead();
+    return super.carrier;
+  }
+
+  @override
+  set carrier(String? value) {
+    _$carrierAtom.reportWrite(value, super.carrier, () {
+      super.carrier = value;
+    });
+  }
+
+  final _$plantNameAtom = Atom(name: '_DashboardStore.plantName');
+
+  @override
+  String? get plantName {
+    _$plantNameAtom.reportRead();
+    return super.plantName;
+  }
+
+  @override
+  set plantName(String? value) {
+    _$plantNameAtom.reportWrite(value, super.plantName, () {
+      super.plantName = value;
+    });
+  }
+
+  final _$depshippingPointNameAtom =
+      Atom(name: '_DashboardStore.depshippingPointName');
+
+  @override
+  String? get depshippingPointName {
+    _$depshippingPointNameAtom.reportRead();
+    return super.depshippingPointName;
+  }
+
+  @override
+  set depshippingPointName(String? value) {
+    _$depshippingPointNameAtom.reportWrite(value, super.depshippingPointName,
+        () {
+      super.depshippingPointName = value;
+    });
+  }
+
+  final _$sHShipToPartyNameAtom =
+      Atom(name: '_DashboardStore.sHShipToPartyName');
+
+  @override
+  String? get sHShipToPartyName {
+    _$sHShipToPartyNameAtom.reportRead();
+    return super.sHShipToPartyName;
+  }
+
+  @override
+  set sHShipToPartyName(String? value) {
+    _$sHShipToPartyNameAtom.reportWrite(value, super.sHShipToPartyName, () {
+      super.sHShipToPartyName = value;
+    });
+  }
+
+  final _$regionAtom = Atom(name: '_DashboardStore.region');
+
+  @override
+  String? get region {
+    _$regionAtom.reportRead();
+    return super.region;
+  }
+
+  @override
+  set region(String? value) {
+    _$regionAtom.reportWrite(value, super.region, () {
+      super.region = value;
+    });
+  }
+
+  final _$transportationZoneAtom =
+      Atom(name: '_DashboardStore.transportationZone');
+
+  @override
+  String? get transportationZone {
+    _$transportationZoneAtom.reportRead();
+    return super.transportationZone;
+  }
+
+  @override
+  set transportationZone(String? value) {
+    _$transportationZoneAtom.reportWrite(value, super.transportationZone, () {
+      super.transportationZone = value;
+    });
+  }
+
+  final _$packMaterialsTrAtom = Atom(name: '_DashboardStore.packMaterialsTr');
+
+  @override
+  String? get packMaterialsTr {
+    _$packMaterialsTrAtom.reportRead();
+    return super.packMaterialsTr;
+  }
+
+  @override
+  set packMaterialsTr(String? value) {
+    _$packMaterialsTrAtom.reportWrite(value, super.packMaterialsTr, () {
+      super.packMaterialsTr = value;
+    });
+  }
+
+  final _$inco1ShipmentAtom = Atom(name: '_DashboardStore.inco1Shipment');
+
+  @override
+  String? get inco1Shipment {
+    _$inco1ShipmentAtom.reportRead();
+    return super.inco1Shipment;
+  }
+
+  @override
+  set inco1Shipment(String? value) {
+    _$inco1ShipmentAtom.reportWrite(value, super.inco1Shipment, () {
+      super.inco1Shipment = value;
+    });
+  }
+
+  final _$gDWKgAtom = Atom(name: '_DashboardStore.gDWKg');
+
+  @override
+  double? get gDWKg {
+    _$gDWKgAtom.reportRead();
+    return super.gDWKg;
+  }
+
+  @override
+  set gDWKg(double? value) {
+    _$gDWKgAtom.reportWrite(value, super.gDWKg, () {
+      super.gDWKg = value;
+    });
+  }
+
+  final _$cPREAtom = Atom(name: '_DashboardStore.cPRE');
+
+  @override
+  String? get cPRE {
+    _$cPREAtom.reportRead();
+    return super.cPRE;
+  }
+
+  @override
+  set cPRE(String? value) {
+    _$cPREAtom.reportWrite(value, super.cPRE, () {
+      super.cPRE = value;
+    });
+  }
+
+  final _$estadoAtom = Atom(name: '_DashboardStore.estado');
+
+  @override
+  String? get estado {
+    _$estadoAtom.reportRead();
+    return super.estado;
+  }
+
+  @override
+  set estado(String? value) {
+    _$estadoAtom.reportWrite(value, super.estado, () {
+      super.estado = value;
+    });
+  }
+
+  final _$transferEndCustomerAtom =
+      Atom(name: '_DashboardStore.transferEndCustomer');
+
+  @override
+  String? get transferEndCustomer {
+    _$transferEndCustomerAtom.reportRead();
+    return super.transferEndCustomer;
+  }
+
+  @override
+  set transferEndCustomer(String? value) {
+    _$transferEndCustomerAtom.reportWrite(value, super.transferEndCustomer, () {
+      super.transferEndCustomer = value;
+    });
+  }
+
+  final _$dieselS10Atom = Atom(name: '_DashboardStore.dieselS10');
+
+  @override
+  double? get dieselS10 {
+    _$dieselS10Atom.reportRead();
+    return super.dieselS10;
+  }
+
+  @override
+  set dieselS10(double? value) {
+    _$dieselS10Atom.reportWrite(value, super.dieselS10, () {
+      super.dieselS10 = value;
+    });
+  }
+
+  final _$dolarCompraAtom = Atom(name: '_DashboardStore.dolarCompra');
+
+  @override
+  double? get dolarCompra {
+    _$dolarCompraAtom.reportRead();
+    return super.dolarCompra;
+  }
+
+  @override
+  set dolarCompra(double? value) {
+    _$dolarCompraAtom.reportWrite(value, super.dolarCompra, () {
+      super.dolarCompra = value;
+    });
+  }
+
+  final _$dolarVendaAtom = Atom(name: '_DashboardStore.dolarVenda');
+
+  @override
+  double? get dolarVenda {
+    _$dolarVendaAtom.reportRead();
+    return super.dolarVenda;
+  }
+
+  @override
+  set dolarVenda(double? value) {
+    _$dolarVendaAtom.reportWrite(value, super.dolarVenda, () {
+      super.dolarVenda = value;
+    });
+  }
+
+  final _$euroCompraAtom = Atom(name: '_DashboardStore.euroCompra');
+
+  @override
+  double? get euroCompra {
+    _$euroCompraAtom.reportRead();
+    return super.euroCompra;
+  }
+
+  @override
+  set euroCompra(double? value) {
+    _$euroCompraAtom.reportWrite(value, super.euroCompra, () {
+      super.euroCompra = value;
+    });
+  }
+
+  final _$euroVendaAtom = Atom(name: '_DashboardStore.euroVenda');
+
+  @override
+  double? get euroVenda {
+    _$euroVendaAtom.reportRead();
+    return super.euroVenda;
+  }
+
+  @override
+  set euroVenda(double? value) {
+    _$euroVendaAtom.reportWrite(value, super.euroVenda, () {
+      super.euroVenda = value;
+    });
+  }
+
+  final _$radioGroupValueAtom = Atom(name: '_DashboardStore.radioGroupValue');
+
+  @override
+  int? get radioGroupValue {
+    _$radioGroupValueAtom.reportRead();
+    return super.radioGroupValue;
+  }
+
+  @override
+  set radioGroupValue(int? value) {
+    _$radioGroupValueAtom.reportWrite(value, super.radioGroupValue, () {
+      super.radioGroupValue = value;
+    });
+  }
+
   final _$refreshDashboardAsyncAction =
       AsyncAction('_DashboardStore.refreshDashboard');
 
@@ -284,6 +621,17 @@ mixin _$DashboardStore on _DashboardStore, Store {
   }
 
   @override
+  void onRadioChane(int? value) {
+    final _$actionInfo = _$_DashboardStoreActionController.startAction(
+        name: '_DashboardStore.onRadioChane');
+    try {
+      return super.onRadioChane(value);
+    } finally {
+      _$_DashboardStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 currentRoute: ${currentRoute},
@@ -300,7 +648,29 @@ packMaterialsTrNameList: ${packMaterialsTrNameList},
 inco1ShipmentList: ${inco1ShipmentList},
 cpreList: ${cpreList},
 stateNameList: ${stateNameList},
-transferEndCustomerTypeList: ${transferEndCustomerTypeList}
+transferEndCustomerTypeList: ${transferEndCustomerTypeList},
+deliveryItem: ${deliveryItem},
+materialName: ${materialName},
+sBU: ${sBU},
+specialProcessingIndicator: ${specialProcessingIndicator},
+carrier: ${carrier},
+plantName: ${plantName},
+depshippingPointName: ${depshippingPointName},
+sHShipToPartyName: ${sHShipToPartyName},
+region: ${region},
+transportationZone: ${transportationZone},
+packMaterialsTr: ${packMaterialsTr},
+inco1Shipment: ${inco1Shipment},
+gDWKg: ${gDWKg},
+cPRE: ${cPRE},
+estado: ${estado},
+transferEndCustomer: ${transferEndCustomer},
+dieselS10: ${dieselS10},
+dolarCompra: ${dolarCompra},
+dolarVenda: ${dolarVenda},
+euroCompra: ${euroCompra},
+euroVenda: ${euroVenda},
+radioGroupValue: ${radioGroupValue}
     ''';
   }
 }

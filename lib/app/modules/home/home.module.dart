@@ -4,7 +4,7 @@ import 'presenter/views/home.view.dart';
 
 class HomeModule extends Module {
   @override
-  List<ModularRoute> get routes => <ModularRoute<dynamic>>[
+  List<ModularRoute> get routes => <ModularRoute>[
         ChildRoute('/', child: (__, _) => HomeView(), transition: TransitionType.fadeIn),
       ];
 }

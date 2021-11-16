@@ -82,7 +82,9 @@ class _SBUNameListState extends ModularState<SBUNameList, DashboardStore> with S
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                 ),
-                onChanged: print,
+                onChanged: (item) {
+                  store.sBU = item;
+                },
                 selectedItem: store.sbuList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(

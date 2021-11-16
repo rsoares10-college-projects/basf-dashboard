@@ -5,16 +5,16 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../dashboard/presenter/stores/dashboard.store.dart';
 
-class PackMaterialList extends StatefulWidget {
-  const PackMaterialList({
+class SHShipToPartyList extends StatefulWidget {
+  const SHShipToPartyList({
     Key? key,
   }) : super(key: key);
 
   @override
-  _PackMaterialListState createState() => _PackMaterialListState();
+  _SHShipToPartyListState createState() => _SHShipToPartyListState();
 }
 
-class _PackMaterialListState extends ModularState<PackMaterialList, DashboardStore> with SingleTickerProviderStateMixin {
+class _SHShipToPartyListState extends ModularState<SHShipToPartyList, DashboardStore> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Color?> _animationOne;
   late Animation<Color?> _animationTwo;
@@ -70,11 +70,12 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
                 color: Colors.white,
               ),
               child: DropdownSearch<String>(
-                dialogMaxWidth: 200.0,
+                dialogMaxWidth: 400.0,
+                maxHeight: 400.0,
                 mode: Mode.DIALOG,
-                items: store.packMaterialsTrNameList,
+                items: store.shShipToPartyNameList,
                 dropdownSearchDecoration: InputDecoration(
-                  labelText: "Pack Materials Tr",
+                  labelText: "SH - Ship-To Party name",
                   contentPadding: EdgeInsets.only(left: 5.0, top: 5.0),
                   border: OutlineInputBorder(
                     gapPadding: 5.0,
@@ -83,9 +84,9 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
                   ),
                 ),
                 onChanged: (value) {
-                  store.packMaterialsTr = value;
+                  store.sHShipToPartyName = value;
                 },
-                selectedItem: store.packMaterialsTrNameList?.first,
+                selectedItem: store.shShipToPartyNameList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(
                   decoration: InputDecoration(
@@ -105,7 +106,7 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
                   ),
                   child: Center(
                     child: Text(
-                      'Pack Materials Tr (${store.packMaterialsTrNameList?.length})',
+                      'SH - Ship-To Party List (${store.shShipToPartyNameList?.length})',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

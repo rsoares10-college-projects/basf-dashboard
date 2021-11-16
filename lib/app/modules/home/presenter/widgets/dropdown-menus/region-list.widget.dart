@@ -82,7 +82,9 @@ class _RegionListState extends ModularState<RegionList, DashboardStore> with Sin
                     borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                   ),
                 ),
-                onChanged: print,
+                onChanged: (value) {
+                  store.region = value;
+                },
                 selectedItem: store.regionNameList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(

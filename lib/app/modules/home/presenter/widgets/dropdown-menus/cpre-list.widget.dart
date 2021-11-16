@@ -5,16 +5,16 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../dashboard/presenter/stores/dashboard.store.dart';
 
-class PackMaterialList extends StatefulWidget {
-  const PackMaterialList({
+class CPREList extends StatefulWidget {
+  const CPREList({
     Key? key,
   }) : super(key: key);
 
   @override
-  _PackMaterialListState createState() => _PackMaterialListState();
+  _CPREListState createState() => _CPREListState();
 }
 
-class _PackMaterialListState extends ModularState<PackMaterialList, DashboardStore> with SingleTickerProviderStateMixin {
+class _CPREListState extends ModularState<CPREList, DashboardStore> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Color?> _animationOne;
   late Animation<Color?> _animationTwo;
@@ -71,10 +71,11 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
               ),
               child: DropdownSearch<String>(
                 dialogMaxWidth: 200.0,
+                maxHeight: 350.0,
                 mode: Mode.DIALOG,
-                items: store.packMaterialsTrNameList,
+                items: store.cpreList,
                 dropdownSearchDecoration: InputDecoration(
-                  labelText: "Pack Materials Tr",
+                  labelText: "CPRE",
                   contentPadding: EdgeInsets.only(left: 5.0, top: 5.0),
                   border: OutlineInputBorder(
                     gapPadding: 5.0,
@@ -83,9 +84,9 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
                   ),
                 ),
                 onChanged: (value) {
-                  store.packMaterialsTr = value;
+                  store.cPRE = value;
                 },
-                selectedItem: store.packMaterialsTrNameList?.first,
+                selectedItem: store.cpreList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(
                   decoration: InputDecoration(
@@ -105,7 +106,7 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
                   ),
                   child: Center(
                     child: Text(
-                      'Pack Materials Tr (${store.packMaterialsTrNameList?.length})',
+                      'CPRE (${store.cpreList?.length})',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

@@ -1,16 +1,19 @@
+import 'package:basf_dashboard/app/modules/home/presenter/widgets/dropdown-menus/transfer-end-customer-radio-box.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../dashboard/presenter/stores/dashboard.store.dart';
 import '../widgets/dropdown-menus/carrier-name-list.widget.dart';
+import '../widgets/dropdown-menus/cpre-list.widget.dart';
+import '../widgets/dropdown-menus/depshipping-point-list.widget.dart';
 import '../widgets/dropdown-menus/inco-1-shipment-list.widget.dart';
 import '../widgets/dropdown-menus/material-name-list.widget.dart';
 import '../widgets/dropdown-menus/pack-material-list.widget.dart';
 import '../widgets/dropdown-menus/plant-name-list.widget.dart';
 import '../widgets/dropdown-menus/region-list.widget.dart';
 import '../widgets/dropdown-menus/sbu-name-list.widget.dart';
+import '../widgets/dropdown-menus/sh-ship-to-party-list.widget.dart';
 import '../widgets/dropdown-menus/state-list.widget.dart';
-import '../widgets/dropdown-menus/transfer-end-customer-radio-box.widget.dart';
 import '../widgets/dropdown-menus/transportation-zone-list.widget.dart';
 import '../widgets/home-view-currency-box/home-view-currency-box.widget.dart';
 import '../widgets/home-view-header/home-view-header.widget.dart';
@@ -23,6 +26,15 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends ModularState<HomeView, DashboardStore> {
+  final _dollarCompraTextEditCtrl = TextEditingController();
+  final _dollarVendaTextEditCtrl = TextEditingController();
+  final _euroCompraTextEditCtrl = TextEditingController();
+  final _euroVendaTextEditCtrl = TextEditingController();
+  final _dieselS10TextEditCtrl = TextEditingController();
+  final _deliveryItemTextEditCtrl = TextEditingController();
+  final _gdwTextEditCtrl = TextEditingController();
+  final _specialPiTextEditCtrl = TextEditingController();
+
   DateTime _selectedDate = DateTime.now();
 
   @override
@@ -64,10 +76,51 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
     }
   }
 
-  Container _textFieldBuilder({String? label, String? hintText}) {
+  void _onDollarCompraChanged(String value) {
+    store.dolarCompra = double.parse(_dollarCompraTextEditCtrl.text);
+  }
+
+  void _onDollarVendaChange(String value) {
+    store.dolarVenda = double.parse(_dollarVendaTextEditCtrl.text);
+  }
+
+  void _onEuroCompraChange(String value) {
+    store.euroCompra = double.parse(_euroCompraTextEditCtrl.text);
+  }
+
+  void _onEuroVendaChange(String value) {
+    store.euroVenda = double.parse(_euroVendaTextEditCtrl.text);
+  }
+
+  void _onDieselPriceChange(String value) {
+    store.dieselS10 = double.parse(_dieselS10TextEditCtrl.text);
+  }
+
+  void _onDeliveryItemChange(String value) {
+    store.deliveryItem = int.parse(_deliveryItemTextEditCtrl.text);
+  }
+
+  void _onGDWChange(String value) {
+    store.gDWKg = double.parse(_gdwTextEditCtrl.text);
+  }
+
+  void _onSPIChange(String value) {
+    store.specialProcessingIndicator = int.parse(_specialPiTextEditCtrl.text);
+  }
+
+  Container _textFieldBuilder({
+    String? label,
+    String? hintText,
+    TextEditingController? controller,
+    Function(String)? onChanged,
+  }) {
     return Container(
       constraints: BoxConstraints(maxHeight: 40.0),
       child: TextField(
+        onChanged: (value) {
+          onChanged?.call(value);
+        },
+        controller: controller,
         decoration: InputDecoration(
           labelText: label ?? null,
           hintText: hintText ?? null,
@@ -229,13 +282,33 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                               children: <Widget>[
                                 Container(
                                   constraints: BoxConstraints(maxWidth: 130.0),
+                                  child: CPREList(),
+                                ),
+                                SizedBox(
+                                  width: 15.0,
+                                ),
+                                Expanded(
+                                  child: DepshippingPointList(),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Container(
+                            constraints: BoxConstraints(maxHeight: 40.0),
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  constraints: BoxConstraints(maxWidth: 130.0),
                                   child: Inco1ShipmentList(),
                                 ),
                                 SizedBox(
                                   width: 15.0,
                                 ),
                                 Expanded(
-                                  child: TransferEndCustomerRadioBox(),
+                                  child: SHShipToPartyList(),
                                 ),
                               ],
                             ),
@@ -252,10 +325,26 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         HomeViewCurrencyBox(
-                          dollarBuyPriceTextField: _textFieldBuilder(hintText: 'Dólar Compra'),
-                          dollarSellPriceTextField: _textFieldBuilder(hintText: 'Dólar Venda'),
-                          euroBuyPriceTextField: _textFieldBuilder(hintText: 'Euro Compra'),
-                          euroSellPriceTextField: _textFieldBuilder(hintText: 'Euro Venda'),
+                          dollarBuyPriceTextField: _textFieldBuilder(
+                            hintText: 'Dólar Compra',
+                            controller: _dollarCompraTextEditCtrl,
+                            onChanged: _onDollarCompraChanged,
+                          ),
+                          dollarSellPriceTextField: _textFieldBuilder(
+                            hintText: 'Dólar Venda',
+                            controller: _dollarVendaTextEditCtrl,
+                            onChanged: _onDollarVendaChange,
+                          ),
+                          euroBuyPriceTextField: _textFieldBuilder(
+                            hintText: 'Euro Compra',
+                            controller: _euroCompraTextEditCtrl,
+                            onChanged: _onEuroCompraChange,
+                          ),
+                          euroSellPriceTextField: _textFieldBuilder(
+                            hintText: 'Euro Venda',
+                            controller: _euroVendaTextEditCtrl,
+                            onChanged: _onEuroVendaChange,
+                          ),
                         ),
                         SizedBox(
                           height: 20.0,
@@ -305,11 +394,23 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                       constraints: BoxConstraints(maxWidth: 240.0),
                                       child: Row(
                                         children: <Widget>[
-                                          Expanded(child: _textFieldBuilder(hintText: 'Diesel S10 ')),
+                                          Expanded(
+                                            child: _textFieldBuilder(
+                                              hintText: 'Diesel S10',
+                                              controller: _dieselS10TextEditCtrl,
+                                              onChanged: _onDieselPriceChange,
+                                            ),
+                                          ),
                                           SizedBox(
                                             width: 10.0,
                                           ),
-                                          Expanded(child: _textFieldBuilder(hintText: 'Delivery Item ')),
+                                          Expanded(
+                                            child: _textFieldBuilder(
+                                              hintText: 'Delivery Item',
+                                              controller: _deliveryItemTextEditCtrl,
+                                              onChanged: _onDeliveryItemChange,
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -352,12 +453,22 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                       constraints: BoxConstraints(maxWidth: 240.0),
                                       child: Row(
                                         children: <Widget>[
-                                          Expanded(child: _textFieldBuilder(hintText: 'GDW')),
+                                          Expanded(
+                                            child: _textFieldBuilder(
+                                              hintText: 'GDW',
+                                              controller: _gdwTextEditCtrl,
+                                              onChanged: _onGDWChange,
+                                            ),
+                                          ),
                                           SizedBox(
                                             width: 10.0,
                                           ),
                                           Expanded(
-                                            child: _textFieldBuilder(hintText: 'Special PI'),
+                                            child: _textFieldBuilder(
+                                              hintText: 'Special PI',
+                                              controller: _specialPiTextEditCtrl,
+                                              onChanged: _onSPIChange,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -367,6 +478,19 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                               ),
                             ],
                           ),
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Container(
+                          constraints: BoxConstraints(maxHeight: 70.0, maxWidth: 250.0),
+                          height: double.infinity,
+                          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          child: TransferEndCustomerRadioBox(),
                         ),
                         SizedBox(
                           height: 20.0,
@@ -383,7 +507,7 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                           child: Row(
                             children: <Widget>[
                               ElevatedButton(
-                                onPressed: _selectDate,
+                                onPressed: store.printData,
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.deepPurple.shade500,
                                 ),

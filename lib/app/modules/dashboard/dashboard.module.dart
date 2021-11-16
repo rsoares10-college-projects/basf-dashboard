@@ -21,7 +21,7 @@ class DashboardModule extends Module {
     ChildRoute(
       '/dashboard',
       child: (context, args) => DashboardLayout(),
-      children: <ModularRoute<dynamic>>[
+      children: [
         ModuleRoute('/home', module: HomeModule(), transition: TransitionType.fadeIn),
         ModuleRoute('/currency', module: CurrencyModule(), transition: TransitionType.fadeIn),
         ChildRoute('/social', child: (__, _) => SocialView(), transition: TransitionType.fadeIn),

@@ -5,16 +5,16 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../dashboard/presenter/stores/dashboard.store.dart';
 
-class PackMaterialList extends StatefulWidget {
-  const PackMaterialList({
+class DepshippingPointList extends StatefulWidget {
+  const DepshippingPointList({
     Key? key,
   }) : super(key: key);
 
   @override
-  _PackMaterialListState createState() => _PackMaterialListState();
+  _DepshippingPointListState createState() => _DepshippingPointListState();
 }
 
-class _PackMaterialListState extends ModularState<PackMaterialList, DashboardStore> with SingleTickerProviderStateMixin {
+class _DepshippingPointListState extends ModularState<DepshippingPointList, DashboardStore> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Color?> _animationOne;
   late Animation<Color?> _animationTwo;
@@ -70,11 +70,12 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
                 color: Colors.white,
               ),
               child: DropdownSearch<String>(
-                dialogMaxWidth: 200.0,
+                dialogMaxWidth: 250.0,
+                maxHeight: 500.0,
                 mode: Mode.DIALOG,
-                items: store.packMaterialsTrNameList,
+                items: store.depshippingPointNameList,
                 dropdownSearchDecoration: InputDecoration(
-                  labelText: "Pack Materials Tr",
+                  labelText: "Ponto de Despacho",
                   contentPadding: EdgeInsets.only(left: 5.0, top: 5.0),
                   border: OutlineInputBorder(
                     gapPadding: 5.0,
@@ -83,9 +84,9 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
                   ),
                 ),
                 onChanged: (value) {
-                  store.packMaterialsTr = value;
+                  store.depshippingPointName = value;
                 },
-                selectedItem: store.packMaterialsTrNameList?.first,
+                selectedItem: store.depshippingPointNameList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(
                   decoration: InputDecoration(
@@ -105,7 +106,7 @@ class _PackMaterialListState extends ModularState<PackMaterialList, DashboardSto
                   ),
                   child: Center(
                     child: Text(
-                      'Pack Materials Tr (${store.packMaterialsTrNameList?.length})',
+                      'Pontos de Despacho (${store.depshippingPointNameList?.length})',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

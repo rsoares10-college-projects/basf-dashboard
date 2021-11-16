@@ -68,6 +68,103 @@ abstract class _DashboardStore with Store {
   @observable
   List<String>? transferEndCustomerTypeList;
 
+  @observable
+  int? deliveryItem;
+
+  @observable
+  String? materialName;
+
+  @observable
+  String? sBU;
+
+  @observable
+  int? specialProcessingIndicator;
+
+  @observable
+  String? carrier;
+
+  @observable
+  String? plantName;
+
+  @observable
+  String? depshippingPointName;
+
+  @observable
+  String? sHShipToPartyName;
+
+  @observable
+  String? region;
+
+  @observable
+  String? transportationZone;
+
+  @observable
+  String? packMaterialsTr;
+
+  @observable
+  String? inco1Shipment;
+
+  @observable
+  double? gDWKg;
+
+  @observable
+  String? cPRE;
+
+  @observable
+  String? estado;
+
+  @observable
+  String? transferEndCustomer;
+
+  @observable
+  double? dieselS10;
+
+  @observable
+  double? dolarCompra;
+
+  @observable
+  double? dolarVenda;
+
+  @observable
+  double? euroCompra;
+
+  @observable
+  double? euroVenda;
+
+  @observable
+  int? radioGroupValue = 0;
+
+  @action
+  void onRadioChane(int? value) {
+    radioGroupValue = value;
+    transferEndCustomer = transferEndCustomerTypeList?[value!];
+  }
+
+  printData() {
+    print('**Current data being sent');
+    print('materialName: $materialName');
+    print('Delivery Item: $deliveryItem');
+    print('sBU: $sBU');
+    print('specialProcessingIndicator: $specialProcessingIndicator');
+    print('carrier: $carrier');
+    print('plantName: $plantName');
+    print('depshippingPointName: $depshippingPointName');
+    print('sHShipToPartyName: $sHShipToPartyName');
+    print('region: $region');
+    print('transportationZone: $transportationZone');
+    print('packMaterialsTr: $packMaterialsTr');
+    print('inco1Shipment: $inco1Shipment');
+    print('gDWKg: $gDWKg');
+    print('cPRE: $cPRE');
+    print('estado: $estado');
+    print('transferEndCustomer: $transferEndCustomer');
+    print('dieselS10: $dieselS10');
+    print('dolarCompra: $dolarCompra');
+    print('dolarVenda: $dolarVenda');
+    print('euroCompra: $euroCompra');
+    print('euroVenda: $euroVenda');
+  }
+
   @action
   Future<void> loadLocalBASFData() async {
     final response = await rootBundle.loadString('assets/json_files/exp_features.json');
@@ -86,6 +183,17 @@ abstract class _DashboardStore with Store {
     cpreList = List<String>.from(data['CPRE']);
     stateNameList = List<String>.from(data['Estado']);
     transferEndCustomerTypeList = List<String>.from(data['Transfer/EndCustomer']);
+
+    transferEndCustomer = transferEndCustomerTypeList?[0];
+    materialName = materialNameList?[0];
+    sBU = sbuList?[0];
+    carrier = carrierNameList?[0];
+    transportationZone = transportationZoneList?[0];
+    plantName = plantNameList?[0];
+    region = regionNameList?[0];
+    estado = stateNameList?[0];
+    packMaterialsTr = packMaterialsTrNameList?[0];
+    inco1Shipment = inco1ShipmentList?[0];
   }
 
   @action

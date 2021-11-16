@@ -82,7 +82,9 @@ class _CarrierNameListState extends ModularState<CarrierNameList, DashboardStore
                     gapPadding: 5.0,
                   ),
                 ),
-                onChanged: print,
+                onChanged: (value) {
+                  store.carrier = value;
+                },
                 selectedItem: store.carrierNameList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(

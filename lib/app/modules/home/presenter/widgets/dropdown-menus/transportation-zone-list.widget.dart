@@ -82,7 +82,9 @@ class _TransportationZoneListState extends ModularState<TransportationZoneList, 
                     borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                   ),
                 ),
-                onChanged: print,
+                onChanged: (value) {
+                  store.transportationZone = value;
+                },
                 selectedItem: store.transportationZoneList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(

@@ -18,7 +18,7 @@ dependencies:
   dartz: ^0.10.0
   mockito: ^5.0.10
   dio: ^4.0.3
-  flutter_modular: ^3.2.2+1
+  flutter_modular: ^4.2.0
   flutter_mobx: ^2.0.0
   mobx: ^2.0.1
   mobx_codegen: ^2.0.1+3

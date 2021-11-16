@@ -83,7 +83,9 @@ class _Inco1ShipmentListState extends ModularState<Inco1ShipmentList, DashboardS
                     borderSide: BorderSide(color: Colors.deepPurple.shade200, width: 1.0),
                   ),
                 ),
-                onChanged: print,
+                onChanged: (value) {
+                  store.inco1Shipment = value;
+                },
                 selectedItem: store.inco1ShipmentList?.first,
                 showSearchBox: true,
                 searchFieldProps: TextFieldProps(
