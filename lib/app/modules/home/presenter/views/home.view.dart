@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../dashboard/presenter/stores/dashboard.store.dart';
 import '../widgets/dropdown-menus/carrier-name-list.widget.dart';
 import '../widgets/dropdown-menus/material-name-list.widget.dart';
+import '../widgets/dropdown-menus/pack-material-list.widget.dart';
 import '../widgets/dropdown-menus/plant-name-list.widget.dart';
 import '../widgets/dropdown-menus/region-list.widget.dart';
 import '../widgets/dropdown-menus/sbu-name-list.widget.dart';
@@ -206,7 +207,7 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                   width: 15.0,
                                 ),
                                 Expanded(
-                                  child: PlantNameList(),
+                                  child: PackMaterialList(),
                                 ),
                               ],
                             ),
