@@ -5,6 +5,7 @@ import '../../../dashboard/presenter/stores/dashboard.store.dart';
 import '../widgets/dropdown-menus/carrier-name-list.widget.dart';
 import '../widgets/dropdown-menus/material-name-list.widget.dart';
 import '../widgets/dropdown-menus/plant-name-list.widget.dart';
+import '../widgets/dropdown-menus/region-list.widget.dart';
 import '../widgets/dropdown-menus/sbu-name-list.widget.dart';
 import '../widgets/dropdown-menus/transportation-zone-list.widget.dart';
 import '../widgets/home-view-currency-box/home-view-currency-box.widget.dart';
@@ -92,13 +93,16 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
               height: 20.0,
             ),
             Container(
-              constraints: BoxConstraints(maxHeight: 400.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.only(left: 10.0),
+                      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -170,6 +174,32 @@ class _HomeViewState extends ModularState<HomeView, DashboardStore> {
                                 Container(
                                   constraints: BoxConstraints(maxWidth: 130.0),
                                   child: TransportationZoneList(),
+                                ),
+                                SizedBox(
+                                  width: 15.0,
+                                ),
+                                Expanded(
+                                  child: PlantNameList(),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Container(
+                            constraints: BoxConstraints(maxHeight: 40.0),
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  constraints: BoxConstraints(maxWidth: 130.0),
+                                  child: RegionList(),
+                                ),
+                                SizedBox(
+                                  width: 15.0,
+                                ),
+                                Expanded(
+                                  child: PlantNameList(),
                                 ),
                                 SizedBox(
                                   width: 15.0,
